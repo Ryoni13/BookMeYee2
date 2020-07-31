@@ -164,8 +164,7 @@ public class JoinGUI {
 					JSONArray arr = (JSONArray)obj.get("results");
 					JSONObject arrResults = (JSONObject)arr.get(0);
 					JSONObject geometry = (JSONObject)arrResults.get("geometry");
-					JSONObject location2 = (JSONObject)geometry.get("location");
-					
+					JSONObject location2 = (JSONObject)geometry.get("location");	
 					
 					latitude = (double)location2.get("lat");
 					longitude = (double)location2.get("lng");

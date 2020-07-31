@@ -133,6 +133,20 @@ public class BookDTO {
 		}
 
 
+		public BookDTO(int titleNumber, String title, String writer, String publisher, String category, int price,
+				String dealtype, String memberid, String dealcar) {
+			this.titleNum = titleNum;
+			this.title = title;
+			this.writer = writer;
+			this.publisher = publisher;
+			this.price = price;
+			this.category = category;
+			this.dealtype = dealtype;
+			this.id = id;
+			this.dealcar = dealcar;
+		}
+
+
 		public void setTitleNum(int titleNum) {
 			this.titleNum = titleNum;
 		}

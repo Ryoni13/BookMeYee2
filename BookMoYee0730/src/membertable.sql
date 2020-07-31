@@ -12,8 +12,7 @@ longitude float(20) NOT NULL,
 memnum number(10) NOT NULL,
 CONSTRAINT membertable_id_pk PRIMARY KEY(id, phonenumber, location));
 
-
-insert into membertable values('김정완', '123', '123', '010', 20, '쌍촌동', 35.15204, 126.863, MEM_ID_SEQ.NEXTVAL)
+insert into membertable values('이향선', '456', '456', '010', 20, '두암동', 35.15204, 126.863,  MEMBERTABLE_ID_SEQ.NEXTVAL)
 
 delete from MEMBERTABLE where name = '김리현메르시'
 
@@ -21,9 +20,9 @@ select * from membertable;
 
 //////
 
-DROP SEQUENCE MEM_ID_SEQ
+DROP SEQUENCE  MEMBERTABLE_ID_SEQ
 
-CREATE SEQUENCE MEM_ID_SEQ
+CREATE SEQUENCE MEMBERTABLE_ID_SEQ
 START WITH 1 
 INCREMENT BY 1
 MAXVALUE 1000 
@@ -33,3 +32,6 @@ NOCYCLE
 SELECT EX_SEQ.CURRVAL FROM DUAL --해당 시퀀스 값 조회
 
 SELECT * FROM USER_SEQUENCES  --전체 시퀀스 조회
+
+
+select * from booktable where dealcar = '교환'

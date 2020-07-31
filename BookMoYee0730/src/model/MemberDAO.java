@@ -76,7 +76,7 @@ public class MemberDAO {
 	public int joinInsert(MemberDTO dto) {
 		int cnt = 0;
 		getConn();
-		String sql = "insert into membertable values(?,?,?,?,?,?,?,?,MEMNUM_SEQ.NEXTVAL)";
+		String sql = "insert into membertable values(?,?,?,?,?,?,?,?,MEMBERTABLE_ID_SEQ.NEXTVAL)";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getName());

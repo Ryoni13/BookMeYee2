@@ -116,6 +116,87 @@ public class BookDAO {
 		return bookList;
 	}
 	
+	public ArrayList<BookDTO> showallbook(String id){
+		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
+		getConn();
+		String sql = "select * from booktable";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				int titleNumber = rs.getInt(1);
+				String title =rs.getString(2);
+				String writer =rs.getString(3);
+				String publisher =rs.getString(4);
+				String category =rs.getString(5);
+				int price = rs.getInt(6);
+				String dealtype = rs.getString(7);
+				String memberid = rs.getString(8);
+			
+				bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bookList;
+	}
+	
+	public ArrayList<BookDTO> showsellbook(String id){
+		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
+		getConn();
+		String sql = "select * from booktable where dealcar = '판매'";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				int titleNumber = rs.getInt(1);
+				String title =rs.getString(2);
+				String writer =rs.getString(3);
+				String publisher =rs.getString(4);
+				String category =rs.getString(5);
+				int price = rs.getInt(6);
+				String dealtype = rs.getString(7);
+				String memberid = rs.getString(8);
+				String dealcar = rs.getString(9);
+			
+				bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bookList;
+	}
+	
+	public ArrayList<BookDTO> showtradebook(String id){
+		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
+		getConn();
+		String sql = "select * from booktable where dealcar = '교환'";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				int titleNumber = rs.getInt(1);
+				String title =rs.getString(2);
+				String writer =rs.getString(3);
+				String publisher =rs.getString(4);
+				String category =rs.getString(5);
+				int price = rs.getInt(6);
+				String dealtype = rs.getString(7);
+				String memberid = rs.getString(8);
+				String dealcar = rs.getString(9);
+			
+				bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bookList;
+	}
+	
+	
 	public class showBookTable {
 		ArrayList<BookDTO> bookList;
 		
