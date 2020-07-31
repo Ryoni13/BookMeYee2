@@ -69,15 +69,15 @@ public class BookInsertGUI {
     * Create the application.
     * @param loginid 
     */
-   public BookInsertGUI(MemberDTO dto) {
-      initialize(dto);
+   public BookInsertGUI(MemberDTO memberdto) {
+      initialize(memberdto);
       frame.setVisible(true);
    }
 
    /**
     * Initialize the contents of the frame.
     */
-   private void initialize(MemberDTO dto) {
+   private void initialize(MemberDTO memberdto) {
       frame = new JFrame();
       frame.setBounds(100, 100, 377, 615);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -166,7 +166,7 @@ public class BookInsertGUI {
                JSONParser parser = new JSONParser();
                
                
-               String id= dto.getId();
+               String id= memberdto.getId();
                String title = tf_insert_book.getText();
                String writer = tf_insert_writer.getText();
                String publisher = tf_insert_publicher.getText();
@@ -189,7 +189,7 @@ public class BookInsertGUI {
                 
                int cnt = dao.bookInsert(new BookDTO(category, title, writer, publisher, price, dealtype, id, dealcar));
                frame.dispose();
-               LibraryGUI main = new LibraryGUI(dto);   
+               LibraryGUI main = new LibraryGUI(memberdto);   
          }
       });
       btn_bookinsert.setBounds(129, 543, 97, 23);
@@ -214,7 +214,7 @@ public class BookInsertGUI {
       
       
       
-      JLabel lbl_id = new JLabel(dto.getId());
+      JLabel lbl_id = new JLabel(memberdto.getId());
       lbl_id.setBounds(275, 10, 57, 15);
       frame.getContentPane().add(lbl_id);
       

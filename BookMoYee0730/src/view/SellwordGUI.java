@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import model.BookDTO;
+import model.MemberDAO;
+import model.MemberDTO;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -18,6 +20,7 @@ import javax.swing.JPanel;
 
 
 public class SellwordGUI {
+	MemberDAO dao = new MemberDAO();
 
 	private JFrame frame;
 
@@ -75,14 +78,8 @@ public class SellwordGUI {
 		lb_sellword_price.setBounds(230, 196, 57, 15);
 		frame.getContentPane().add(lb_sellword_price);
 		
-		JLabel lb_sellword_id = new JLabel(bookdto.getId());//dto.getId()
-		lb_sellword_id.setBounds(366, 10, 57, 15);
-		frame.getContentPane().add(lb_sellword_id);
 		
-		JLabel lb_sellword_dealcar = new JLabel(bookdto.getDealcar());
-		lb_sellword_dealcar.setBounds(177, 30, 57, 15);
-		frame.getContentPane().add(lb_sellword_dealcar);
-		System.out.println(bookdto.getDealcar());
+		
 		
 		JLabel lblNewLabel = new JLabel("\uC81C\uBAA9");
 		lblNewLabel.setBounds(109, 96, 57, 15);
@@ -111,9 +108,6 @@ public class SellwordGUI {
         	 System.out.println("편하게 거래");
          }
 		
-		JLabel lb_sellword_dealdeal = new JLabel(dealtype.toString());
-		lb_sellword_dealdeal.setBounds(165, 238, 94, 15);
-		frame.getContentPane().add(lb_sellword_dealdeal);
 		
 		
 		
