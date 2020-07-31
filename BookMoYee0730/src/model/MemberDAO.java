@@ -53,16 +53,16 @@ public class MemberDAO {
 			psmt.setString(2,pw);
 			rs=psmt.executeQuery();
 			while(rs.next()) {
-				int memnum = rs.getInt(1);
-				String name = rs.getString(2);
-				String loginId = rs.getString(3);
-				String loginPw = rs.getString(4);
-				String phoneNumber = rs.getString(5);
-				int bread = rs.getInt(6);
-				String location = rs.getString(7);
-				double latitude = rs.getDouble(8);
-				double longitude = rs.getDouble(9);
-				dto = new MemberDTO(memnum, name, loginId, loginPw, phoneNumber, bread, location, latitude, longitude);
+				String name = rs.getString(1);
+				String loginid = rs.getString(2);
+				String loginpw = rs.getString(3);
+				String phoneNumber = rs.getString(4);
+				int bread = rs.getInt(5);
+				String location = rs.getString(6);
+				double latitude = rs.getDouble(7);
+				double longitude = rs.getDouble(8);
+				int memnum = rs.getInt(9);
+				dto = new MemberDTO(name,loginid, loginpw, phoneNumber, bread, location, latitude, longitude);
 			}
 			
 		} catch (SQLException e) {
@@ -76,7 +76,7 @@ public class MemberDAO {
 	public int joinInsert(MemberDTO dto) {
 		int cnt = 0;
 		getConn();
-		String sql = "insert into membertable values(MEM_SEQ.NEXTVAL, ?,?,?,?,?,?,?,?)";
+		String sql = "insert into membertable values(?,?,?,?,?,?,?,?,MEMNUM_SEQ.NEXTVAL)";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getName());
@@ -121,16 +121,16 @@ public class MemberDAO {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
-				int memnum = rs.getInt(1);
-				String name = rs.getString(2);
-				String id = rs.getString(3);
-				String pw = rs.getString(4);
-				String phoneNumber = rs.getString(5);
-				int bread = rs.getInt(6);
-				String location = rs.getString(7);
-				double latitude = rs.getFloat(8);
-				double longitude = rs.getFloat(9);
-				memberList.add(new MemberDTO(memnum, name, id, pw, phoneNumber, bread, location, latitude, longitude));
+				String name = rs.getString(1);
+				String loginid = rs.getString(2);
+				String loginpw = rs.getString(3);
+				String phoneNumber = rs.getString(4);
+				int bread = rs.getInt(5);
+				String location = rs.getString(6);
+				double latitude = rs.getDouble(7);
+				double longitude = rs.getDouble(8);
+				int memnum = rs.getInt(9);
+				memberList.add(new MemberDTO(name,loginid, loginpw, phoneNumber, bread, location, latitude, longitude));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

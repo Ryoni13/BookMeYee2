@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import model.BookDTO;
 import model.MemberDTO;
 import outline.mypageGUI2;
 

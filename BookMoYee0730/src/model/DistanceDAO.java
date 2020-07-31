@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.xml.crypto.Data;
 
 public class DistanceDAO {
 	Connection conn = null;
@@ -41,27 +44,27 @@ public class DistanceDAO {
 
 	}
 	
-	public static void main(String[] args) {
-        
-        // 킬로미터(Kilo Meter) 단위
-        double distanceKiloMeter =
-            distance(35.152711, 126.843987, 35.125129, 126.878376, "kilometer");
-     
-        System.out.println(distanceKiloMeter) ;
 
-    }
-     
-    /**
-     * 두 지점간의 거리 계산
-     *
-     * @param lat1 지점 1 위도
-     * @param lon1 지점 1 경도
-     * @param lat2 지점 2 위도
-     * @param lon2 지점 2 경도
-     * @param unit 거리 표출단위
-     * @return
-     */
-    private static double distance(double lat1, double lon1, double lat2, double lon2, String unit) {
+	public ArrayList<MemberDTO> showlocation() {
+		ArrayList<MemberDTO> distanceList = new ArrayList<MemberDTO>();
+		
+		getConn();
+		String sql = "select * from membertable";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+						float latitude = rs.getFloat(8);
+						float longitude = rs.getFloat(9);
+						distanceList.add(new MemberDTO(latitude, longitude));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return distanceList;
+	}
+	
+	private static double distance(double lat1, double lon1, double lat2, double lon2, String unit) {
          
         double theta = lon1 - lon2;
         double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
@@ -86,5 +89,48 @@ public class DistanceDAO {
     private static double rad2deg(double rad) {
         return (rad * 180 / Math.PI);
     }
+    
+    
+    
+    public static void main(String[] args) {//
+    	
+    	DistanceDAO dao = new DistanceDAO();
+    	double distanceKiloMeter;
+    	int max = dao.showlocation().size();
+    	
+		for (int j = 0; j <= 4; j++) {
+			double latitude = dao.showlocation().get(j).getLatitude();
+			double longitude = dao.showlocation().get(j).getLongitude();
+			for (int i = 0; i <= 4; i++) {
+				double latitude1 = dao.showlocation().get(i).getLatitude();
+				double longitude1 = dao.showlocation().get(i).getLongitude();
+				distanceKiloMeter = distance(latitude, longitude, latitude1, longitude1, "kilometer");
+				System.out.println(j+"와"+i+" : "+(float)distanceKiloMeter) ;
+			}
+			System.out.println("");
+		}
+    }
+    
+    
+    
+//    public static void main(String[] args) {
+//    	System.out.println(result(0,2));	
+//        }
+//
+//        public static double result(int j, int i) {
+//    	DistanceDAO dao = new DistanceDAO();
+//    	double distanceKiloMeter;
+//    	
+//    		double latitude = dao.showlocation().get(j).getLatitude();
+//    		double longitude = dao.showlocation().get(j).getLongitude();
+//    		double latitude1 = dao.showlocation().get(i).getLatitude();
+//    		double longitude1 = dao.showlocation().get(i).getLongitude();
+//    		distanceKiloMeter = distance(latitude, longitude, latitude1, longitude1, "kilometer");
+//    		return (double) distanceKiloMeter;
+//        }
+        
 
-}
+}//마지막 괄호
+    
+        
+

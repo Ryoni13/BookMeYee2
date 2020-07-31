@@ -39,6 +39,7 @@ public class LibraryGUI<TableModel> {
 	String category;
 	String dealtype;
 	String id;
+	String dealcar;
 	
 
 	/**
@@ -80,13 +81,7 @@ public class LibraryGUI<TableModel> {
 		lblNewLabel.setBounds(207, 36, 57, 15);
 		frame.getContentPane().add(lblNewLabel);
 
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				
-			}
-		});
+		JScrollPane scrollPane = new JScrollPane();//
 		scrollPane.setBounds(23, 71, 420, 515);
 		frame.getContentPane().add(scrollPane);
 
@@ -123,18 +118,6 @@ public class LibraryGUI<TableModel> {
 		btn_library_new.setBounds(362, 42, 76, 23);
 		frame.getContentPane().add(btn_library_new);
 		
-		JButton btn_write = new JButton("\uAE00 \uB4F1\uB85D");
-		btn_write.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-				
-				BookDTO bookdto = new BookDTO(titleNumber, title, writer, publisher, price, category, dealtype, id);
-				WriteGUI write = new WriteGUI(bookdto);
-			}
-		});
-		btn_write.setBounds(192, 613, 97, 23);
-		frame.getContentPane().add(btn_write);
-		
 		JButton btnNewButton = new JButton("\uB0B4 \uC815\uBCF4");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -148,12 +131,12 @@ public class LibraryGUI<TableModel> {
 		JButton btnNewButton_1 = new JButton("\uBA54\uC778");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			
-
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				MainGUI main = new MainGUI(dto);
 			}
 		});
+		
 		btnNewButton_1.setBounds(38, 32, 97, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		

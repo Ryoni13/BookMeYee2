@@ -52,7 +52,7 @@ public class BookDAO {
 	public int bookInsert(BookDTO dto) {
 		int cnt = 0;
 		getConn();
-		String sql = "insert into booktable values(book_SEQ.NEXTVAL,?,?,?,?,?,?,?)";
+		String sql = "insert into booktable values(book_titlenumber_SEQ.NEXTVAL,?,?,?,?,?,?,?,?)";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getTitle());
@@ -62,7 +62,8 @@ public class BookDAO {
 			psmt.setInt(5, dto.getPrice());
 			psmt.setString(6, dto.getDealtype());
 			psmt.setString(7, dto.getId());
-			
+			psmt.setString(8, dto.getDealcar());
+		
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -107,7 +108,7 @@ public class BookDAO {
 				String dealtype = rs.getString(7);
 				String memberid = rs.getString(8);
 			
-				bookList.add(new BookDTO(titleNumber, title, writer, publisher, price, category, dealtype, memberid));
+				bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -122,13 +123,14 @@ public class BookDAO {
 			Object[][] data= new Object[bookList.size()][8];
 			
 			for(int i = 0; i<data.length; i++) {
-				data[i][0] = bookList.get(i).getTitle();
-				data[i][1] = bookList.get(i).getWriter();
-				data[i][2] = bookList.get(i).getPublisher();
-				data[i][3] = bookList.get(i).getPrice();
-				data[i][4] = bookList.get(i).getCategory();
-				data[i][5] = bookList.get(i).getDealtype();
-				data[i][6] = bookList.get(i).getId();
+				data[i][0] = bookList.get(i).getTitleNum();
+				data[i][1] = bookList.get(i).getTitle();
+				data[i][2] = bookList.get(i).getWriter();
+				data[i][3] = bookList.get(i).getPublisher();
+				data[i][4] = bookList.get(i).getPrice();
+				data[i][5] = bookList.get(i).getCategory();
+				data[i][6] = bookList.get(i).getDealtype();
+				data[i][7] = bookList.get(i).getId();
 				
 			}
 			

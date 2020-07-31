@@ -1,28 +1,29 @@
-CREATE TABLE booktable(
-titleNum Number(10), 
-title VARCHAR2(100),
-writer VARCHAR2(50),
-publisher VARCHAR2(50),
-category VARCHAR2(30),
-price number(10),
-dealtype Varchar2(20),
-id VARCHAR2(30)
-)
+DROP SEQUENCE book_SEQ
 
 drop table booktable
 
-insert into booktable values (book_SEQ.NEXTVAL, '부의 추월차선', '김리현', '스마트', '아동', 25,'직거래','123')
-insert into booktable values (book_SEQ.NEXTVAL, '파이썬', '브리즈', 'SMHRD', '교양', 25,'배달','123')
+CREATE TABLE booktable(
+titleNumber number(10), 
+title varchar2(100) NOT NULL,
+writer varchar2(50) NOT NULL,
+publisher varchar2(50) NOT NULL,
+category varchar2(30),
+price number(20) NOT NULL,
+dealtype varchar2(20),
+id varchar2(30),
+dealcar varchar2(10) NOT NULL
+)
 
+insert into booktable values (book_titlenumber_SEQ.NEXTVAL, '부의 추월차선', '김리현', '스마트', '아동', 25,'직거래','123','판매')
 
 select * from booktable
 
-CREATE SEQUENCE book_SEQ
-START WITH 1 
-INCREMENT BY 1
-MAXVALUE 1000 
-MINVALUE 1 
-NOCYCLE 
+CREATE SEQUENCE book_titlenumber_SEQ
+    INCREMENT BY 1
+    START WITH 100
+    MAXVALUE 9999
+    NOCACHE
+    NOCYCLE;
 
-DROP SEQUENCE book_SEQ
+
 

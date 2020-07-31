@@ -1,4 +1,9 @@
 package krwd;
+
+import java.util.ArrayList;
+
+import model.BookDTO;
+
 public class LocationDistance {
  
     public static void main(String[] args) {
@@ -8,6 +13,7 @@ public class LocationDistance {
             distance(35.152711, 126.843987, 35.125129, 126.878376, "kilometer");
      
         System.out.println(distanceKiloMeter) ;
+        System.out.println();
 
     }
      
@@ -21,6 +27,9 @@ public class LocationDistance {
      * @param unit 거리 표출단위
      * @return
      */
+
+    
+    
     private static double distance(double lat1, double lon1, double lat2, double lon2, String unit) {
          
         double theta = lon1 - lon2;

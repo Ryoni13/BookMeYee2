@@ -1,27 +1,29 @@
 drop table membertable
 
-CREATE TABLE membertable(memnum number(10), name VARCHAR2(20),id VARCHAR2(20), pw VARCHAR2(20),  phoneNumber VARCHAR2(20), 
-bread number(10), location VARCHAR2(30), latitude float(20), longitude float(20));
+CREATE TABLE membertable(
+NAME varchar2(20) not null, 
+id varchar2(20),
+pw varchar2(20) NOT NULL,
+phonenumber varchar2(20) NOT NULL,
+bread number(10),
+location varchar2(30),
+latitude float(20) NOT NULL,
+longitude float(20) NOT NULL,
+memnum number(10) NOT NULL,
+CONSTRAINT membertable_id_pk PRIMARY KEY(id, phonenumber, location));
 
 
-insert into membertable values(MEM_SEQ.NEXTVAL,'±èÁ¤¿Ï', '123','123','010', 20,'±¤ÁÖ Ä¡Æòµ¿', 35.14122, 126.8394)
-insert into membertable values(MEM_SEQ.NEXTVAL,'°­ÁÖÈñ', 'qwe','qwe','010', 20,'±¤ÁÖ ½ÖÃÌµ¿', 35.15204, 126.863)
-insert into membertable values(MEM_SEQ.NEXTVAL,'±è¸®Çö', 'asd','asd','010', 20,'±¤ÁÖ Ä¡Æòµ¿', 35.15325, 126.8446)
-insert into membertable values(MEM_SEQ.NEXTVAL,'ÀÌÇâ¼±', 'zxc','zxc','010', 20,'±¤ÁÖ Ã·´Ü2Áö±¸', 35.21419, 126.8693)
-insert into membertable values(MEM_SEQ.NEXTVAL,'Á¶¹®Çü', '456','456','010', 20,'±¤ÁÖ µÎ¾Ïµ¿', 35.17114, 126.9364)
+insert into membertable values('±èÁ¤¿Ï', '123', '123', '010', 20, '½ÖÃÌµ¿', 35.15204, 126.863, MEM_ID_SEQ.NEXTVAL)
 
 delete from MEMBERTABLE where name = '±è¸®Çö¸Þ¸£½Ã'
 
 select * from membertable;
 
-drop table membertable
-
-
 //////
 
-DROP SEQUENCE MEM_SEQ
+DROP SEQUENCE MEM_ID_SEQ
 
-CREATE SEQUENCE MEM_SEQ
+CREATE SEQUENCE MEM_ID_SEQ
 START WITH 1 
 INCREMENT BY 1
 MAXVALUE 1000 

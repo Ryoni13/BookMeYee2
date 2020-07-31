@@ -1,7 +1,6 @@
 package model;
 
 public class MemberDTO {
-	private int memnum;
 	private String name;
 	private String id;
 	private String pw;
@@ -10,11 +9,11 @@ public class MemberDTO {
 	private String location;
 	private double latitude;
 	private double longitude;
+	private int memnum;
 	
-	public MemberDTO(int memnum, String name, String id, String pw, String phoneNumber, int bread, String location, double latitude,
-			double longitude) {
+	public MemberDTO(String name, String id, String pw, String phoneNumber, int bread, String location, double latitude,
+			double longitude, int memnum) {
 		super();
-		this.memnum = memnum;
 		this.name = name;
 		this.id = id;
 		this.pw = pw;
@@ -23,6 +22,7 @@ public class MemberDTO {
 		this.location = location;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.memnum = memnum;
 	}
 
 	public MemberDTO(String name, String id, String pw, String phoneNumber, int bread, String location, double latitude,
@@ -44,10 +44,6 @@ public class MemberDTO {
 		this.longitude = longitude;
 	}
 	
-
-	public int getmemnum() {
-		return memnum;
-	}
 	
 	public String getName() {
 		return name;
@@ -81,5 +77,8 @@ public class MemberDTO {
 		return longitude;
 	}
 	
+	public int getmemnum() {
+		return memnum;
+	}
 	
 }
