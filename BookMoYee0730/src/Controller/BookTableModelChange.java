@@ -21,8 +21,7 @@ public class BookTableModelChange {
 				data[i][3] = bookList.get(i).getWriter();
 				data[i][4] = bookList.get(i).getPublisher();
 				data[i][5] = bookList.get(i).getPrice();
-				data[i][6] = bookList.get(i).getId();
-				
+				data[i][6] = bookList.get(i).getId();				
 			}
 			
 			return data;

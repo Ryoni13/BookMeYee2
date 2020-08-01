@@ -235,7 +235,7 @@ public class MainGUI {
 			all_tab.addTab("자기계발", null, all_better, null);
 			
 			BookTableModelChange modelCh3 = new BookTableModelChange(dao.showbetterthanyesterday(memdto.getId()));
-			Object[][] data3 = modelCh2.listTypeChange();
+			Object[][] data3 = modelCh3.listTypeChange();
 			
 			table_all_better = new JTable(data3, colName);
 			
@@ -264,7 +264,7 @@ public class MainGUI {
 			all_tab.addTab("문제집", null, all_munjejip, null);
 				
 				BookTableModelChange modelCh4 = new BookTableModelChange(dao.showmunjezip(memdto.getId()));
-				Object[][] data4 = modelCh3.listTypeChange();
+				Object[][] data4 = modelCh4.listTypeChange();
 		
 				table_all_munjejip = new JTable(data4, colName);
 				
@@ -292,7 +292,7 @@ public class MainGUI {
 				all_tab.addTab("잡지", null, all_magazine, null);
 				
 				BookTableModelChange modelCh5 = new BookTableModelChange(dao.showmagazine(memdto.getId()));
-				Object[][] data5 = modelCh2.listTypeChange();
+				Object[][] data5 = modelCh5.listTypeChange();
 				
 				table_all_magazine = new JTable(data5, colName);
 				table_all_magazine.addMouseListener(new MouseAdapter() {
@@ -318,7 +318,7 @@ public class MainGUI {
 				all_tab.addTab("만화", null, all_cartoon, null);
 				
 				BookTableModelChange modelCh6 = new BookTableModelChange(dao.showcartoon(memdto.getId()));
-				Object[][] data6 = modelCh2.listTypeChange();
+				Object[][] data6 = modelCh6.listTypeChange();
 				
 				table_all_cartoon = new JTable(data6, colName);
 				table_all_cartoon.addMouseListener(new MouseAdapter() {
