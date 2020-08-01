@@ -2,7 +2,7 @@ package model;
 
 public class BookDTO {
 	
-	
+	private int titleNum;
 	private String title;
 	private String writer;
 	private String publisher;
@@ -27,7 +27,7 @@ public class BookDTO {
 		this.dealtype = dealtype;
 		this.id = id;
 		this.dealcar = dealcar;
-		PhoneNumber = phoneNumber;
+		this.PhoneNumber = phoneNumber;
 		this.location = location;
 	}
 	public BookDTO(int titleNumber, String title, String writer, String publisher, String category, int price,
@@ -113,7 +113,7 @@ public class BookDTO {
 	}
 	
 	
-	private int titleNum;
+	
 	public int getTitleNum() {
 		return titleNum;
 	}

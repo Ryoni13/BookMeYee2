@@ -43,6 +43,18 @@ insert into book values (tn_SEQ.NEXTVAL,'정완이의 일상', '김정완', 'SMHRD', '문�
 
 select * from book;
 
+select * from book where dealcar = '판매'all(select * from book where category = '아동');
+select title,
+writer,
+publisher,
+category,
+price,
+dealtype,
+id,
+dealcar,
+phonenumber,
+location from book where dealcar = '판매' and category = '아동';
+
 
 
 

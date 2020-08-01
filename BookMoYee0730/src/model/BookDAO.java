@@ -117,8 +117,8 @@ public class BookDAO {
 		}
 		return bookList;
 	}
-	
-	public ArrayList<BookDTO> showallbook(String id){
+	//////////////////////////////////////메인창탭화면////////////////////////////////////////////////
+	public ArrayList<BookDTO> showallbook(String id){///전체탭전체
 		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 		getConn();
 		String sql = "select * from book";
@@ -147,7 +147,7 @@ public class BookDAO {
 		return bookList;
 	}
 	
-	public ArrayList<BookDTO> showsellbook(String id){
+	public ArrayList<BookDTO> sellAllbook(String id){///판매탭전체
 		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 		getConn();
 		String sql = "select * from book where dealcar = '판매'";
@@ -165,8 +165,10 @@ public class BookDAO {
 				String dealtype = rs.getString(7);
 				String memberid = rs.getString(8);
 				String dealcar = rs.getString(9);
+				String phoneNumber = rs.getString(10);
+				String location = rs.getString(11);
 			
-				bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar));
+				bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar, phoneNumber, location));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -174,7 +176,9 @@ public class BookDAO {
 		return bookList;
 	}
 	
-	public ArrayList<BookDTO> showtradebook(String id){
+	
+	
+	public ArrayList<BookDTO> showtradebook(String id){///교환탭전체
 		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 		getConn();
 		String sql = "select * from book where dealcar = '교환'";
@@ -201,8 +205,8 @@ public class BookDAO {
 		return bookList;
 	}
 	
-	//카테고리 책들
-		public ArrayList<BookDTO> showkidsbook(String id){
+	//전체,판매,교환탭안의 카테고리 책들(아동,소설,자기계발,문제집,잡지,만화)
+		public ArrayList<BookDTO> showkidsbook(String id){//전체탭아동
 			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 			getConn();
 			String sql = "select * from book where category = '아동'";
@@ -229,7 +233,46 @@ public class BookDAO {
 			return bookList;
 		}
 		
-		public ArrayList<BookDTO> showmunjezip(String id){
+		
+		public ArrayList<BookDTO> sellkidsbook(String id){//판매탭아동
+			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
+			getConn();
+			String sql = "select title,\r\n" + 
+					"writer,\r\n" + 
+					"publisher,\r\n" + 
+					"category,\r\n" + 
+					"price,\r\n" + 
+					"dealtype,\r\n" + 
+					"id,\r\n" + 
+					"dealcar,\r\n" + 
+					"phonenumber,\r\n" + 
+					"location from book where dealcar = '판매' and category = '아동';";
+			
+			try {
+				psmt = conn.prepareStatement(sql);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					int titleNumber = rs.getInt(1);
+					String title =rs.getString(2);
+					String writer =rs.getString(3);
+					String publisher =rs.getString(4);
+					String category =rs.getString(5);
+					int price = rs.getInt(6);
+					String dealtype = rs.getString(7);
+					String memberid = rs.getString(8);
+					String dealcar = rs.getString(9);
+					String phoneNumber = rs.getString(10);
+					String location = rs.getString(11);
+				
+					bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar, phoneNumber, location));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return bookList;
+		}
+		
+		public ArrayList<BookDTO> showmunjezip(String id){//전체탭문제집
 			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 			getConn();
 			String sql = "select * from book where category = '문제집'";
@@ -256,7 +299,34 @@ public class BookDAO {
 			return bookList;
 		}
 		
-		public ArrayList<BookDTO> shownovel(String id){
+		public ArrayList<BookDTO> sellmunjezip(String id){//판매탭문제집
+			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
+			getConn();
+			String sql = "select * from book where category = '문제집'";
+			
+			try {
+				psmt = conn.prepareStatement(sql);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					int titleNumber = rs.getInt(1);
+					String title =rs.getString(2);
+					String writer =rs.getString(3);
+					String publisher =rs.getString(4);
+					String category =rs.getString(5);
+					int price = rs.getInt(6);
+					String dealtype = rs.getString(7);
+					String memberid = rs.getString(8);
+					String dealcar = rs.getString(9);
+				
+					bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return bookList;
+		}
+		
+		public ArrayList<BookDTO> shownovel(String id){//전체탭소설
 			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 			getConn();
 			String sql = "select * from book where category = '소설'";
@@ -283,7 +353,7 @@ public class BookDAO {
 			return bookList;
 		}
 		
-		public ArrayList<BookDTO> showbetterthanyesterday(String id){
+		public ArrayList<BookDTO> showbetterthanyesterday(String id){//전체탭자기계발서
 			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 			getConn();
 			String sql = "select * from book where category = '자기계발서'";
@@ -310,7 +380,7 @@ public class BookDAO {
 			return bookList;
 		}
 		
-		public ArrayList<BookDTO> showmagazine(String id){
+		public ArrayList<BookDTO> showmagazine(String id){//전체탭잡지
 			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 			getConn();
 			String sql = "select * from book where category = '잡지'";
@@ -337,7 +407,7 @@ public class BookDAO {
 			return bookList;
 		}
 		
-		public ArrayList<BookDTO> showcartoon(String id){
+		public ArrayList<BookDTO> showcartoon(String id){//전체탭만화
 			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 			getConn();
 			String sql = "select * from book where category = '만화'";
@@ -363,7 +433,7 @@ public class BookDAO {
 			}
 			return bookList;
 		}
-		//카테고리 책
+		//카테고리 책끝////////////////////////////////////////////////////////////////////////////////
 		
 		public ArrayList<BookDTO> showdelivery(String id) {
 			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
