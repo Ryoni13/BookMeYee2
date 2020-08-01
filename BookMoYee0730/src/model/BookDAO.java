@@ -201,84 +201,189 @@ public class BookDAO {
 		return bookList;
 	}
 	
-	//카테고리 아동인 책들
-	public ArrayList<BookDTO> showkisbook(String id){
-		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
-		getConn();
-		String sql = "select * from book where category = '아동'";
-		
-		try {
-			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
-			while(rs.next()) {
-				int titleNumber = rs.getInt(1);
-				String title =rs.getString(2);
-				String writer =rs.getString(3);
-				String publisher =rs.getString(4);
-				String category =rs.getString(5);
-				int price = rs.getInt(6);
-				String dealtype = rs.getString(7);
-				String memberid = rs.getString(8);
-				String dealcar = rs.getString(9);
+	//카테고리 책들
+		public ArrayList<BookDTO> showkidsbook(String id){
+			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
+			getConn();
+			String sql = "select * from book where category = '아동'";
 			
-				bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return bookList;
-	}
-	
-	//카테고리 문제집인 책들
-	public ArrayList<BookDTO> showmunjuzip(String id){
-		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
-		getConn();
-		String sql = "select * from book where category = '문제집'";
-		
-		try {
-			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
-			while(rs.next()) {
-				int titleNumber = rs.getInt(1);
-				String title =rs.getString(2);
-				String writer =rs.getString(3);
-				String publisher =rs.getString(4);
-				String category =rs.getString(5);
-				int price = rs.getInt(6);
-				String dealtype = rs.getString(7);
-				String memberid = rs.getString(8);
-				String dealcar = rs.getString(9);
-			
-				bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return bookList;
-	}
-	
-	public class showBookTable {
-		ArrayList<BookDTO> bookList;
-		
-		public Object[][] listTypeChange(){
-			Object[][] data= new Object[bookList.size()][10];
-			
-			for(int i = 0; i<data.length; i++) {
-				data[i][0] = bookList.get(i).getTitleNum();
-				data[i][1] = bookList.get(i).getTitle();
-				data[i][2] = bookList.get(i).getWriter();
-				data[i][3] = bookList.get(i).getPublisher();
-				data[i][4] = bookList.get(i).getCategory();
-				data[i][5] = bookList.get(i).getPrice();
-				data[i][6] = bookList.get(i).getDealtype();
-				data[i][7] = bookList.get(i).getId();
-				data[i][8] = bookList.get(i).getDealcar();
-				data[i][9] = bookList.get(i).getPhoneNumber();
-				data[i][9] = bookList.get(i).getLocation();
+			try {
+				psmt = conn.prepareStatement(sql);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					int titleNumber = rs.getInt(1);
+					String title =rs.getString(2);
+					String writer =rs.getString(3);
+					String publisher =rs.getString(4);
+					String category =rs.getString(5);
+					int price = rs.getInt(6);
+					String dealtype = rs.getString(7);
+					String memberid = rs.getString(8);
+					String dealcar = rs.getString(9);
 				
+					bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
+			return bookList;
+		}
+		
+		public ArrayList<BookDTO> showmunjezip(String id){
+			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
+			getConn();
+			String sql = "select * from book where category = '문제집'";
 			
-			return data;
+			try {
+				psmt = conn.prepareStatement(sql);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					int titleNumber = rs.getInt(1);
+					String title =rs.getString(2);
+					String writer =rs.getString(3);
+					String publisher =rs.getString(4);
+					String category =rs.getString(5);
+					int price = rs.getInt(6);
+					String dealtype = rs.getString(7);
+					String memberid = rs.getString(8);
+					String dealcar = rs.getString(9);
+				
+					bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return bookList;
+		}
+		
+		public ArrayList<BookDTO> shownovel(String id){
+			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
+			getConn();
+			String sql = "select * from book where category = '소설'";
+			
+			try {
+				psmt = conn.prepareStatement(sql);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					int titleNumber = rs.getInt(1);
+					String title =rs.getString(2);
+					String writer =rs.getString(3);
+					String publisher =rs.getString(4);
+					String category =rs.getString(5);
+					int price = rs.getInt(6);
+					String dealtype = rs.getString(7);
+					String memberid = rs.getString(8);
+					String dealcar = rs.getString(9);
+				
+					bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return bookList;
+		}
+		
+		public ArrayList<BookDTO> showbetterthanyesterday(String id){
+			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
+			getConn();
+			String sql = "select * from book where category = '자기계발서'";
+			
+			try {
+				psmt = conn.prepareStatement(sql);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					int titleNumber = rs.getInt(1);
+					String title =rs.getString(2);
+					String writer =rs.getString(3);
+					String publisher =rs.getString(4);
+					String category =rs.getString(5);
+					int price = rs.getInt(6);
+					String dealtype = rs.getString(7);
+					String memberid = rs.getString(8);
+					String dealcar = rs.getString(9);
+				
+					bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return bookList;
+		}
+		
+		public ArrayList<BookDTO> showmagazine(String id){
+			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
+			getConn();
+			String sql = "select * from book where category = '잡지'";
+			
+			try {
+				psmt = conn.prepareStatement(sql);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					int titleNumber = rs.getInt(1);
+					String title =rs.getString(2);
+					String writer =rs.getString(3);
+					String publisher =rs.getString(4);
+					String category =rs.getString(5);
+					int price = rs.getInt(6);
+					String dealtype = rs.getString(7);
+					String memberid = rs.getString(8);
+					String dealcar = rs.getString(9);
+				
+					bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return bookList;
+		}
+		
+		public ArrayList<BookDTO> showcartoon(String id){
+			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
+			getConn();
+			String sql = "select * from book where category = '만화'";
+			
+			try {
+				psmt = conn.prepareStatement(sql);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					int titleNumber = rs.getInt(1);
+					String title =rs.getString(2);
+					String writer =rs.getString(3);
+					String publisher =rs.getString(4);
+					String category =rs.getString(5);
+					int price = rs.getInt(6);
+					String dealtype = rs.getString(7);
+					String memberid = rs.getString(8);
+					String dealcar = rs.getString(9);
+				
+					bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return bookList;
+		}
+		//카테고리 책
+		
+		public class showBookTable {
+			ArrayList<BookDTO> bookList;
+			
+			public Object[][] listTypeChange(){
+				Object[][] data= new Object[bookList.size()][8];
+				
+				for(int i = 0; i<data.length; i++) {
+					data[i][0] = bookList.get(i).getTitleNum();
+					data[i][1] = bookList.get(i).getTitle();
+					data[i][2] = bookList.get(i).getWriter();
+					data[i][3] = bookList.get(i).getPublisher();
+					data[i][4] = bookList.get(i).getPrice();
+					data[i][5] = bookList.get(i).getCategory();
+					data[i][6] = bookList.get(i).getDealtype();
+					data[i][7] = bookList.get(i).getId();
+					
+				}
+				
+				return data;
 		}
 	}
 }
