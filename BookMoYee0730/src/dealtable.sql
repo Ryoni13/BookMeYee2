@@ -1,21 +1,25 @@
-create table deal (
-dealNumber number(10),
-title varchar(20),
-writer VARCHAR2(50),
-publisher VARCHAR2(50),
-category VARCHAR2(30),
-price number(10),
-dealtype Varchar2(20),
-id varchar(20),
-phoneNumber varchar(20),
-location varchar(20),
-price number(20))
-)
+DROP SEQUENCE op_SEQ
+
+create table deal (dealnumber number(20),
+id varchar2(20) NOT NULL,
+phonenumber varchar2(20) NOT NULL,
+title varchar2(100) NOT NULL,
+location varchar2(30) NOT NULL,
+price number(20) NOT NULL,
+locaInfo float(20) NOT NULL,
+CONSTRAINT deal_dealnumber_pk primary key(dealnumber),
+CONSTRAINT deal_id_fk foreign key(id, location, phonenumber)
+references membertable(id, location, phonenumber));
 
 
 
-insert into deal values (1,'juhee','01044003062','1Q84','±§¡÷º≠±∏',20)
+CREATE SEQUENCE op_SEQ
+    INCREMENT BY 1
+    START WITH 10
+    MAXVALUE 9999999
+    NOCACHE
+    NOCYCLE;
 
-select * from deal
+insert into deal values (op_SEQ.NEXTVAL, 'qwe', '010', '¡÷»Ò¿« ¿œªÛ', '±§¡÷ Ω÷√Ãµø', 45, 1.2653);
 
-drop table deal
+
