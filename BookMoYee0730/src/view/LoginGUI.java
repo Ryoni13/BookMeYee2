@@ -1,4 +1,4 @@
-package view;
+package view; //로그인 하는 창
 
 import java.awt.EventQueue;
 

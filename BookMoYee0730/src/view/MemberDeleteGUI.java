@@ -1,4 +1,4 @@
-package view;
+package view; // 회원 삭제
 
 import java.awt.EventQueue;
 

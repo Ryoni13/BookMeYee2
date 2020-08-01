@@ -1,4 +1,4 @@
-package view;
+package view; // È¸¿ø Á¤º¸ º¸±â
 
 import java.awt.EventQueue;
 
@@ -73,14 +73,25 @@ public class ShowMemberInfo {
 		table = new JTable(data, colName);
 		scrollPane.setViewportView(table);
 		
-		JButton button = new JButton("\uB2EB\uAE30");
-		button.addActionListener(new ActionListener() {
+		JButton btn_showmemberinfo_close = new JButton("\uB2EB\uAE30");
+		btn_showmemberinfo_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 			}
 		});
-		button.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 15));
-		button.setBounds(12, 271, 410, 34);
-		frame.getContentPane().add(button);
+		btn_showmemberinfo_close.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 15));
+		btn_showmemberinfo_close.setBounds(225, 271, 189, 34);
+		frame.getContentPane().add(btn_showmemberinfo_close);
+		
+		JButton btn_showmemberinfo_back = new JButton("\uB3CC\uC544\uAC00\uAE30");
+		btn_showmemberinfo_back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				LoginGUI login = new LoginGUI(); 
+			}
+		});
+		btn_showmemberinfo_back.setFont(new Font("Dialog", Font.PLAIN, 15));
+		btn_showmemberinfo_back.setBounds(22, 271, 189, 34);
+		frame.getContentPane().add(btn_showmemberinfo_back);
 	}
 }

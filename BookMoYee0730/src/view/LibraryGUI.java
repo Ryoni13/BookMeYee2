@@ -1,4 +1,4 @@
-package view;
+package view; //¼­Àç Ã¢
 
 import java.awt.EventQueue;
 import java.awt.print.Book;

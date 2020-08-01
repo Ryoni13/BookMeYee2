@@ -41,7 +41,6 @@ insert into membertable values('조문형', '456','456','010', 20,
 //////////////////////////////////////////////////////전에있던거///////////////////////////////////////////////////
 insert into membertable values('이향선', '456', '456', '010', 20, '두암동', 35.15204, 126.863,  MEMBERTABLE_ID_SEQ.NEXTVAL)
 
-delete from MEMBERTABLE where name = '김리현메르시'
 
 select * from membertable;
 

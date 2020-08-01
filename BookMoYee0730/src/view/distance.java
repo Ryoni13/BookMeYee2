@@ -1,4 +1,4 @@
-package view;
+package view; //거리 계산 창
 
 import java.awt.EventQueue;
 

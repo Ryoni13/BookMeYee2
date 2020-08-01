@@ -1,4 +1,4 @@
-package view;
+package view; //서재와 판매 목록에 책 등록하는 창
 
 import java.awt.EventQueue;
 

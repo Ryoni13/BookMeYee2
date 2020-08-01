@@ -1,4 +1,4 @@
-package view;
+package view; //판매하는 책들이 보이는 창
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,12 +36,28 @@ public class MainGUI {
 	private BookDAO dao = new BookDAO();
 //	private BookDTO bookdto = new BookDTO();
 	private JTabbedPane tabbedPane;
-	private JScrollPane scrollPane;
+	private JScrollPane scrollPane_all;
 	private JTable table_all;
-	private JScrollPane scrollPane_1;
+	private JScrollPane scrollPane_sell;
 	private JTable table_sell;
-	private JScrollPane scrollPane_2;
+	private JScrollPane scrollPane_trade;
 	private JTable table_trade;
+	private JTabbedPane tabbedPane_1;
+	private JScrollPane scrollPane_4;
+	private JScrollPane scrollPane_5;
+	private JScrollPane scrollPane_6;
+	private JScrollPane scrollPane_7;
+	private JScrollPane scrollPane_8;
+	private JScrollPane scrollPane_9;
+	private JScrollPane scrollPane_10;
+	private JTable table;
+	private JTabbedPane all_tab;
+	private JScrollPane all_all;
+	private JScrollPane all_kids;
+	private JScrollPane all_munjejip;
+	private JTable table_all_all;
+	private JTable table_all_kids;
+	private JTable table_all_munjejip;
 	
 
 	/**
@@ -69,12 +85,14 @@ public class MainGUI {
 	}
 
 
+
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(MemberDTO memdto) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 454, 595);
+		frame.setBounds(100, 100, 706, 595);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -98,95 +116,117 @@ public class MainGUI {
 		frame.getContentPane().add(lblNewLabel);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(12, 114, 414, 432);
+		tabbedPane.setBounds(12, 114, 655, 410);
 		frame.getContentPane().add(tabbedPane);
 		
+		//
+		
+		scrollPane_all = new JScrollPane();
+		tabbedPane.addTab("전체", null, scrollPane_all, null);
+		
+		String[] colName = {"거래방식", "카테고리", "책 제목" ,"저자", "출판사", "가격"}; // 전체 테이블 컬럼
 
+		scrollPane_all.setViewportView(table_all);
 		
+		all_tab = new JTabbedPane(JTabbedPane.TOP);
+		scrollPane_all.setViewportView(all_tab);
 		
-		
-		//////////////////////////////////////////////////////////////////////////////
-		scrollPane = new JScrollPane();
-		tabbedPane.addTab("전체", null, scrollPane, null);
-		
-		String[] colName = {"거래방식", "카테고리", "책 제목" ,"저자", "출판사", "가격"};
-		BookTableModelChange modelCh = new BookTableModelChange(dao.showallbook(memdto.getId()));
-		Object[][] data = modelCh.listTypeChange();//걍뜨는 테이블
-		
-		table_all = new JTable(data, colName);
-		table_all.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				int index = table_all.getSelectedRow();
+			all_all = new JScrollPane();
+			all_tab.addTab("전체", null, all_all, null);
 			
-				dealtype = (String) table_all.getValueAt(index, 0);
-				category = (String) table_all.getValueAt(index, 1);
-			    title = (String) table_all.getValueAt(index, 2);
-			    writer = (String) table_all.getValueAt(index, 3);
-			    publisher = (String) table_all.getValueAt(index, 4);
-			    price = (int) table_all.getValueAt(index, 5);
-			    
-//			    System.out.println(dealtype);
-//			    System.out.println(category);
-//			    System.out.println(title);
-//			    System.out.println(writer);
-//			    System.out.println(publisher);123	
-//			    System.out.println(price+"asdf");
-			    
-			    BookDTO bookdto1 = new BookDTO(dealtype, category, title,  writer, publisher, price);
+				BookTableModelChange modelCh = new BookTableModelChange(dao.showallbook(memdto.getId()));
+				Object[][] data = modelCh.listTypeChange();
 			
-			    SellwordGUI word = new SellwordGUI(bookdto1);
-			   
+				table_all_all = new JTable(data, colName);
+				table_all_all.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						int index = table_all_all.getSelectedRow();
+					
+						dealtype = (String) table_all_all.getValueAt(index, 0);
+						category = (String) table_all_all.getValueAt(index, 1);
+					    title = (String) table_all_all.getValueAt(index, 2);
+					    writer = (String) table_all_all.getValueAt(index, 3);
+					    publisher = (String) table_all_all.getValueAt(index, 4);
+					    price = (int) table_all_all.getValueAt(index, 5);
+					    			    
+					    BookDTO bookdto1 = new BookDTO(dealtype, category, title,  writer, publisher, price);
+					
+					    SellwordGUI word = new SellwordGUI(bookdto1);
+					}
+				});
+				all_all.setViewportView(table_all_all);
+			
 
-			}
-		});
-		scrollPane.setViewportView(table_all);
-		
-		//////////////////////////////////////////////////////////////////////////////
-		scrollPane_1 = new JScrollPane();
-		tabbedPane.addTab("판매", null, scrollPane_1, null);
-		
-		String[] colName1 = {"정완", "주희", "문형" ,"저자", "출판사", "가격"};
-		BookTableModelChange modelCh1 = new BookTableModelChange(dao.showsellbook(memdto.getId()));
-		Object[][] data1 = modelCh1.listTypeChange();
-		table_sell = new JTable(data1,colName1);
-		
-		scrollPane_1.setViewportView(table_sell);
-		
-		
-		////////////////////////////////////////////////////////////////////////////////
-		scrollPane_2 = new JScrollPane();
-		tabbedPane.addTab("교환", null, scrollPane_2, null);
-		
-		String[] colName2 = {"리현", "향선", "문형" ,"저자", "출판사", "가격"};
-		BookTableModelChange modelCh2 = new BookTableModelChange(dao.showtradebook(memdto.getId()));
-		Object[][] data2 = modelCh2.listTypeChange();
-		
-		table_trade = new JTable(data2,colName2);
-		
-		scrollPane_2.setViewportView(table_trade);
-		
-		/////////////////////////////////////////////////////////////////////////////////
-		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				frame.dispose();
+			all_kids = new JScrollPane();
+			all_tab.addTab("아동", null, all_kids, null);
 				
-			}
-		});
-		btnNewButton.setBounds(136, 45, 97, 23);
-		frame.getContentPane().add(btnNewButton);
+				BookTableModelChange modelCh1 = new BookTableModelChange(dao.showkisbook(memdto.getId()));
+				Object[][] data1 = modelCh1.listTypeChange();
+				
+				table_all_kids = new JTable(data1, colName);
+				table_all_kids.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						int index = table_all_kids.getSelectedRow();
+					
+						dealtype = (String) table_all_kids.getValueAt(index, 0);
+						category = (String) table_all_kids.getValueAt(index, 1);
+					    title = (String) table_all_kids.getValueAt(index, 2);
+					    writer = (String) table_all_kids.getValueAt(index, 3);
+					    publisher = (String) table_all_kids.getValueAt(index, 4);
+					    price = (int) table_all_kids.getValueAt(index, 5);
+					    			    
+					    BookDTO bookdto1 = new BookDTO(dealtype, category, title,  writer, publisher, price);
+					
+					    SellwordGUI word = new SellwordGUI(bookdto1);
+					}
+				});
+				all_kids.setViewportView(table_all_kids);
+			
+		
+			all_munjejip = new JScrollPane();
+			all_tab.addTab("문제집", null, all_munjejip, null);
+				
+				BookTableModelChange modelCh2 = new BookTableModelChange(dao.showmunjuzip(memdto.getId()));
+				Object[][] data2 = modelCh2.listTypeChange();
+		
+				table_all_munjejip = new JTable(data2, colName);
+				
+				table_all_munjejip.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						int index = table_all_munjejip.getSelectedRow();
+					
+						dealtype = (String) table_all_munjejip.getValueAt(index, 0);
+						category = (String) table_all_munjejip.getValueAt(index, 1);
+					    title = (String) table_all_munjejip.getValueAt(index, 2);
+					    writer = (String) table_all_munjejip.getValueAt(index, 3);
+					    publisher = (String) table_all_munjejip.getValueAt(index, 4);
+					    price = (int) table_all_munjejip.getValueAt(index, 5);
+					    			    
+					    BookDTO bookdto1 = new BookDTO(dealtype, category, title,  writer, publisher, price);
+					
+					    SellwordGUI word = new SellwordGUI(bookdto1);
+					}
+				});
+				
+				all_munjejip.setViewportView(table_all_munjejip);
+			
+		//////////////////////////////////////////////////////////////////////////////
+		
+		scrollPane_sell = new JScrollPane();
+		tabbedPane.addTab("판매", null, scrollPane_sell, null);
+		scrollPane_sell.setViewportView(table_sell);
 		
 		////////////////////////////////////////////////////////////////////////////////
+		scrollPane_trade = new JScrollPane();
+		tabbedPane.addTab("교환", null, scrollPane_trade, null);
+		scrollPane_trade.setViewportView(table_trade);
 
 		
+
 	}
-	
-
- 
 }
-
 
 
