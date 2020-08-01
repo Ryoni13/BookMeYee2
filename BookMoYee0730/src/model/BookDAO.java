@@ -365,6 +365,31 @@ public class BookDAO {
 		}
 		//카테고리 책
 		
+		public ArrayList<BookDTO> showdelivery(String id) {
+			ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
+			getConn();
+			String sql = "select * from book where dealtype= '배달'";
+
+			try {
+				psmt = conn.prepareStatement(sql);
+				rs = psmt.executeQuery();
+				while (rs.next()) {
+					String title = rs.getString(2);
+					String writer = rs.getString(3);
+					String publisher = rs.getString(4);
+					String category = rs.getString(5);
+
+					bookList.add(new BookDTO(title, writer, publisher, category));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return bookList;
+
+		}
+		
+		
+		
 		public class showBookTable {
 			ArrayList<BookDTO> bookList;
 			

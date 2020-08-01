@@ -68,6 +68,16 @@ public class BookDTO {
 		
 		
 	}
+	
+	public BookDTO(String title, String writer, String publisher, String category) {
+		this.title = title;
+		this.writer = writer;
+		this.publisher = publisher;
+		this.category = category;
+	}
+	
+	
+	
 	public void setTitleNumer(int titleNumer) {
 		this.titleNum = titleNumer;
 	}

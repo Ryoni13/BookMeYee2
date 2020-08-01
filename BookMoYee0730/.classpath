@@ -3,9 +3,11 @@
 	<classpathentry excluding="src/" kind="src" path=""/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/SMT005/Desktop/Java_Study/geocoder-java-0.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SMT005/Desktop/Java_Study/gson-2.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SMT005/Desktop/Java_Study/json-simple-1.1.1.jar"/>
 	<classpathentry kind="lib" path="C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SMT012/git/BookMoY2/BookMoYee0730/geocoder-java-0.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SMT012/git/BookMoY2/BookMoYee0730/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SMT012/git/BookMoY2/BookMoYee0730/jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SMT012/git/BookMoY2/BookMoYee0730/jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SMT012/git/BookMoY2/BookMoYee0730/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

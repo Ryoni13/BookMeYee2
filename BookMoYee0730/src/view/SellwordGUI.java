@@ -129,6 +129,16 @@ public class SellwordGUI {
 		btnNewButton.setBounds(14, 22, 64, 27);
 		frame.getContentPane().add(btnNewButton);
 		
+		JButton btnNewButton_1 = new JButton("delivery");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				deliveryGUI delivery = new deliveryGUI(bookdto);
+			}
+		});
+		btnNewButton_1.setBounds(169, 343, 97, 23);
+		frame.getContentPane().add(btnNewButton_1);
+		
 
 		
 		
