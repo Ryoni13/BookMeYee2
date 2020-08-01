@@ -1,4 +1,4 @@
-package view; //·Î±×ÀÎ ÇÏ´Â Ã¢
+package view;
 
 import java.awt.EventQueue;
 
@@ -17,6 +17,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import javax.swing.JPanel;
+import java.awt.SystemColor;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
 
 public class LoginGUI {
 
@@ -54,34 +59,36 @@ public class LoginGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.getContentPane().setBackground(new Color(173, 216, 230));
+		frame.setBounds(100, 100, 750, 530);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("\uB85C\uADF8\uC778");
+		JLabel lblNewLabel = new JLabel("Login");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 20));
-		lblNewLabel.setBounds(12, 17, 410, 42);
+		lblNewLabel.setFont(new Font("Dialog", Font.PLAIN, 22));
+		lblNewLabel.setBounds(408, 76, 286, 42);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("\uC544  \uC774  \uB514   :");
+		JLabel lblNewLabel_1 = new JLabel("I     D   :");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
-		lblNewLabel_1.setBounds(12, 70, 95, 28);
+		lblNewLabel_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblNewLabel_1.setBounds(408, 169, 95, 28);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		tf_login_id = new JTextField();
-		tf_login_id.setBounds(111, 70, 295, 28);
+		tf_login_id.setBounds(515, 169, 186, 28);
 		frame.getContentPane().add(tf_login_id);
 		tf_login_id.setColumns(10);
 		
-		JLabel label = new JLabel("\uBE44\uBC00\uBC88\uD638   :");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
-		label.setBounds(12, 108, 95, 28);
-		frame.getContentPane().add(label);
+		JLabel lblPW = new JLabel("P    W   :");
+		lblPW.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPW.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblPW.setBounds(408, 220, 95, 28);
+		frame.getContentPane().add(lblPW);
 		
-		JButton btn_login_login = new JButton("\uB85C\uADF8\uC778");
+		JButton btn_login_login = new JButton("login");
+		btn_login_login.setBackground(new Color(100, 149, 237));
 		btn_login_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String id = tf_login_id.getText();
@@ -92,19 +99,20 @@ public class LoginGUI {
 					pf_login_pw.setText("");
 				}else {
 					frame.dispose();
-					MainGUI mainGUI = new MainGUI(dto);
+					MainGUI main = new MainGUI(dto);
 				}
 			}
 		});
 		btn_login_login.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 15));
-		btn_login_login.setBounds(12, 176, 126, 34);
+		btn_login_login.setBounds(418, 296, 126, 34);
 		frame.getContentPane().add(btn_login_login);
 		
 		pf_login_pw = new JPasswordField();
-		pf_login_pw.setBounds(111, 108, 295, 28);
+		pf_login_pw.setBounds(515, 221, 186, 28);
 		frame.getContentPane().add(pf_login_pw);
 		
-		JButton btn_login_join = new JButton("\uD68C\uC6D0 \uAC00\uC785");
+		JButton btn_login_join = new JButton("membership");
+		btn_login_join.setBackground(new Color(100, 149, 237));
 		btn_login_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -112,17 +120,29 @@ public class LoginGUI {
 			}
 		});
 		btn_login_join.setFont(new Font("Dialog", Font.PLAIN, 15));
-		btn_login_join.setBounds(152, 176, 126, 34);
+		btn_login_join.setBounds(568, 296, 126, 34);
 		frame.getContentPane().add(btn_login_join);
 		
-		JButton btn_login_info = new JButton("\uD68C\uC6D0 \uC815\uBCF4");
-		btn_login_info.addActionListener(new ActionListener() {
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(102, 153, 204));
+		panel.setBounds(0, 0, 375, 491);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\lo.png"));
+		lblNewLabel_2.setBounds(87, 23, 228, 413);
+		panel.add(lblNewLabel_2);
+		
+		JButton btnNewButton = new JButton("È¸¿øÁ¤º¸");
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ShowMemberInfo memberInfo = new ShowMemberInfo();
 			}
 		});
-		btn_login_info.setFont(new Font("Dialog", Font.PLAIN, 15));
-		btn_login_info.setBounds(292, 176, 126, 34);
-		frame.getContentPane().add(btn_login_info);
+		btnNewButton.setBounds(514, 445, 97, 23);
+		frame.getContentPane().add(btnNewButton);
+		
+	
 	}
 }

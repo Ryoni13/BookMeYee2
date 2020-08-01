@@ -31,6 +31,10 @@ import java.awt.event.ActionEvent;
 import javax.swing.JEditorPane;
 import javax.swing.JCheckBox;
 import javax.swing.ButtonGroup;
+import java.awt.SystemColor;
+import javax.swing.JPanel;
+import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class BookInsertGUI {
 
@@ -79,7 +83,8 @@ public class BookInsertGUI {
     */
    private void initialize(MemberDTO memberdto) {
       frame = new JFrame();
-      frame.setBounds(100, 100, 377, 615);
+      frame.getContentPane().setBackground(new Color(173, 216, 230));
+      frame.setBounds(100, 100, 750, 420);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.getContentPane().setLayout(null);
       
@@ -159,6 +164,7 @@ public class BookInsertGUI {
       frame.getContentPane().add(cb_insert_sha);
       
       JButton btn_bookinsert = new JButton("\uD310\uB9E4 \uB4F1\uB85D");
+      btn_bookinsert.setBackground(new Color(100, 149, 237));
       btn_bookinsert.addActionListener(new ActionListener() {
 
          public void actionPerformed(ActionEvent e) {
@@ -196,20 +202,15 @@ public class BookInsertGUI {
                LibraryGUI main = new LibraryGUI(memberdto);   
          }
       });
-      btn_bookinsert.setBounds(45, 543, 97, 23);
+      btn_bookinsert.setBounds(419, 318, 97, 23);
       frame.getContentPane().add(btn_bookinsert);
       
       JLabel lblNewLabel_5 = new JLabel("\uAC00\uACA9");
       lblNewLabel_5.setBounds(82, 236, 57, 15);
       frame.getContentPane().add(lblNewLabel_5);
       
-      
-      JLabel lblNewLabel_6 = new JLabel("\uD310\uB9E4 \uB4F1\uB85D");
-      lblNewLabel_6.setBounds(12, 10, 57, 15);
-      frame.getContentPane().add(lblNewLabel_6);
-      
       JEditorPane editorPane = new JEditorPane();
-      editorPane.setBounds(12, 336, 337, 163);
+      editorPane.setBounds(409, 44, 279, 264);
       frame.getContentPane().add(editorPane);
       
       JLabel label = new JLabel("\uD310\uB9E4\uBC29\uC2DD");
@@ -227,14 +228,42 @@ public class BookInsertGUI {
       frame.getContentPane().add(label_1);
       
       JButton btn_cancel = new JButton("\uCDE8\uC18C");
+      btn_cancel.setBackground(new Color(100, 149, 237));
       btn_cancel.addActionListener(new ActionListener() {
       	public void actionPerformed(ActionEvent arg0) {
       		frame.dispose();
 			LibraryGUI library = new LibraryGUI(memberdto);//취소버튼누르면 서재로 돌아가기
       	}
       });
-      btn_cancel.setBounds(209, 543, 97, 23);
+      btn_cancel.setBounds(586, 318, 97, 23);
       frame.getContentPane().add(btn_cancel);
+      
+      JLabel lblNewLabel_7 = new JLabel("\uBA54\uBAA8");
+      lblNewLabel_7.setBounds(409, 10, 57, 15);
+      frame.getContentPane().add(lblNewLabel_7);
+      
+      JPanel panel = new JPanel();
+      panel.setBackground(SystemColor.activeCaption);
+      panel.setBounds(0, 0, 371, 579);
+      frame.getContentPane().add(panel);
+      panel.setLayout(null);
+      
+      
+      JLabel lblNewLabel_6 = new JLabel("\uD310\uB9E4 \uB4F1\uB85D");
+      lblNewLabel_6.setBounds(159, 5, 72, 15);
+      panel.add(lblNewLabel_6);
+      
+      JButton btnNewButton = new JButton("");
+      btnNewButton.addActionListener(new ActionListener() {
+      	public void actionPerformed(ActionEvent e) {
+      		frame.dispose();
+			MainGUI library = new MainGUI(memberdto);
+      	}
+      });
+      btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\main2.png"));
+      btnNewButton.setBackground(SystemColor.activeCaption);
+      btnNewButton.setBounds(12, 5, 66, 42);
+      panel.add(btnNewButton);
       
       
    }

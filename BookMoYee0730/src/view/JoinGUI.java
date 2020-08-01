@@ -1,4 +1,4 @@
-package view; //È¸¿ø°¡ÀÔ ÇÏ´Â Ã¢
+package view;
 
 
 import javax.swing.JFrame;
@@ -27,6 +27,10 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import javax.swing.JPanel;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
 
 public class JoinGUI {
 
@@ -70,73 +74,75 @@ public class JoinGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 463, 425);
+		frame.getContentPane().setBackground(new Color(173, 216, 230));
+		frame.setBounds(100, 100, 750, 530);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel label = new JLabel("\uD68C\uC6D0\uAC00\uC785");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 20));
-		label.setBounds(11, 10, 410, 42);
-		frame.getContentPane().add(label);
+		JLabel lblMembership = new JLabel("membership");
+		lblMembership.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMembership.setFont(new Font("Dialog", Font.PLAIN, 20));
+		lblMembership.setBounds(416, 26, 262, 42);
+		frame.getContentPane().add(lblMembership);
 		
-		JLabel label_1 = new JLabel("\uC544  \uC774  \uB514   :");
-		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_1.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
-		label_1.setBounds(55, 62, 95, 28);
-		frame.getContentPane().add(label_1);
+		JLabel lblID = new JLabel("I       D   :");
+		lblID.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblID.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
+		lblID.setBounds(392, 85, 95, 28);
+		frame.getContentPane().add(lblID);
 		
-		JLabel label_2 = new JLabel("\uBE44\uBC00\uBC88\uD638   :");
-		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_2.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
-		label_2.setBounds(55, 99, 95, 28);
-		frame.getContentPane().add(label_2);
+		JLabel lblPW = new JLabel("P     W   :");
+		lblPW.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPW.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
+		lblPW.setBounds(392, 132, 95, 28);
+		frame.getContentPane().add(lblPW);
 		
 		tf_join_id = new JTextField();
 		tf_join_id.setColumns(10);
-		tf_join_id.setBounds(185, 62, 212, 28);
+		tf_join_id.setBounds(499, 89, 201, 21);
 		frame.getContentPane().add(tf_join_id);
 		
-		JLabel label_3 = new JLabel("\uBE44\uBC00\uBC88\uD638\uD655\uC778   :");
-		label_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_3.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
-		label_3.setBounds(18, 138, 132, 28);
-		frame.getContentPane().add(label_3);
+		JLabel lblPwConfirm = new JLabel("PW confirm   :");
+		lblPwConfirm.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPwConfirm.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
+		lblPwConfirm.setBounds(355, 179, 132, 28);
+		frame.getContentPane().add(lblPwConfirm);
 		
-		JLabel label_5 = new JLabel("\uC774       \uB984   :");
-		label_5.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_5.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
-		label_5.setBounds(55, 176, 95, 28);
-		frame.getContentPane().add(label_5);
+		JLabel lblName = new JLabel("NAME   :");
+		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblName.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
+		lblName.setBounds(392, 226, 95, 28);
+		frame.getContentPane().add(lblName);
 		
 		tf_join_name = new JTextField();
 		tf_join_name.setColumns(10);
-		tf_join_name.setBounds(185, 176, 212, 28);
+		tf_join_name.setBounds(499, 230, 201, 21);
 		frame.getContentPane().add(tf_join_name);
 		
-		JLabel label_6 = new JLabel("\uC704 \uCE58   :");
-		label_6.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_6.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
-		label_6.setBounds(55, 256, 95, 28);
-		frame.getContentPane().add(label_6);
+		JLabel lblLocation = new JLabel("Location  :");
+		lblLocation.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblLocation.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
+		lblLocation.setBounds(392, 320, 95, 28);
+		frame.getContentPane().add(lblLocation);
 		
 		tf_join_location = new JTextField();
 		tf_join_location.setColumns(10);
-		tf_join_location.setBounds(185, 256, 212, 28);
+		tf_join_location.setBounds(499, 324, 201, 21);
 		frame.getContentPane().add(tf_join_location);
 		
-		JLabel label_7 = new JLabel("\uD578\uB4DC\uD3F0 \uBC88\uD638  :");
-		label_7.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_7.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
-		label_7.setBounds(55, 216, 95, 28);
-		frame.getContentPane().add(label_7);
+		JLabel lblPhonenumber = new JLabel("PhoneNumber :");
+		lblPhonenumber.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPhonenumber.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 14));
+		lblPhonenumber.setBounds(382, 273, 105, 28);
+		frame.getContentPane().add(lblPhonenumber);
 		
 		tf_join_phoneNumber = new JTextField();
 		tf_join_phoneNumber.setColumns(10);
-		tf_join_phoneNumber.setBounds(185, 216, 212, 28);
+		tf_join_phoneNumber.setBounds(499, 277, 201, 21);
 		frame.getContentPane().add(tf_join_phoneNumber);
 		
-		JButton btn_join = new JButton("\uD68C\uC6D0 \uAC00\uC785");
+		JButton btn_join = new JButton("membership");
+		btn_join.setBackground(new Color(70, 130, 180));
 		btn_join.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -164,7 +170,8 @@ public class JoinGUI {
 					JSONArray arr = (JSONArray)obj.get("results");
 					JSONObject arrResults = (JSONObject)arr.get(0);
 					JSONObject geometry = (JSONObject)arrResults.get("geometry");
-					JSONObject location2 = (JSONObject)geometry.get("location");	
+					JSONObject location2 = (JSONObject)geometry.get("location");
+					
 					
 					latitude = (double)location2.get("lat");
 					longitude = (double)location2.get("lng");
@@ -182,7 +189,6 @@ public class JoinGUI {
 				if(pw.equals(pwCheck)) {
 					int cnt = dao.joinInsert(new MemberDTO(name, id, pw, phoneNumber, bread, location, latitude, longitude));
 					if(cnt == 0) {
-						System.out.println("½ÇÆÐ");
 						JOptionPane.showMessageDialog(null, "È¸¿ø°¡ÀÔ ½ÇÆÐ!");
 					}else {
 						frame.dispose();
@@ -197,25 +203,38 @@ public class JoinGUI {
 		});
 		
 		btn_join.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 15));
-		btn_join.setBounds(52, 315, 156, 34);
+		btn_join.setBounds(392, 387, 124, 34);
 		frame.getContentPane().add(btn_join);
 		
-		JButton btn_join_close = new JButton("\uB2EB\uAE30");
+		JButton btn_join_close = new JButton("close");
+		btn_join_close.setBackground(new Color(70, 130, 180));
 		btn_join_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 			}
 		});
 		btn_join_close.setFont(new Font("³ª´®°íµñ ExtraBold", Font.PLAIN, 15));
-		btn_join_close.setBounds(233, 315, 156, 34);
+		btn_join_close.setBounds(568, 387, 132, 34);
 		frame.getContentPane().add(btn_join_close);
 		
 		pf_join_pwCheck = new JPasswordField();
-		pf_join_pwCheck.setBounds(185, 138, 212, 28);
+		pf_join_pwCheck.setBounds(499, 183, 201, 21);
 		frame.getContentPane().add(pf_join_pwCheck);
 		
 		pf_join_pw = new JPasswordField();
-		pf_join_pw.setBounds(185, 99, 212, 28);
+		pf_join_pw.setBounds(499, 136, 201, 21);
 		frame.getContentPane().add(pf_join_pw);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(70, 130, 180));
+		panel.setBounds(0, 0, 359, 491);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBackground(SystemColor.activeCaption);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\lo.png"));
+		lblNewLabel.setBounds(69, 123, 218, 220);
+		panel.add(lblNewLabel);
 	}
 }

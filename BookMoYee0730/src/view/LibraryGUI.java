@@ -24,6 +24,10 @@ import javax.swing.JTextArea;
 import javax.swing.JComboBox;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.Color;
 
 public class LibraryGUI<TableModel> {
 
@@ -73,16 +77,18 @@ public class LibraryGUI<TableModel> {
 	 */
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 486, 706);
+		frame.getContentPane().setBackground(SystemColor.activeCaption);
+		frame.setBounds(100, 100, 750, 530);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("\uB0B4 \uC11C\uC7AC");
-		lblNewLabel.setBounds(207, 36, 57, 15);
+		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 18));
+		lblNewLabel.setBounds(316, 14, 127, 55);
 		frame.getContentPane().add(lblNewLabel);
 
 		JScrollPane scrollPane = new JScrollPane();//
-		scrollPane.setBounds(23, 71, 420, 515);
+		scrollPane.setBounds(48, 101, 650, 363);
 		frame.getContentPane().add(scrollPane);
 
 		String[] colName = {"거래방식", "카테고리", "책 제목" ,"저자", "출판사", "가격"};
@@ -108,6 +114,7 @@ public class LibraryGUI<TableModel> {
 		scrollPane.setViewportView(table);	
 		
 		Button btn_library_new = new Button("\uCC45 \uB4F1\uB85D");
+		btn_library_new.setBackground(new Color(100, 149, 237));
 		
 		btn_library_new.addActionListener(new ActionListener() {//
 			public void actionPerformed(ActionEvent e) {
@@ -115,20 +122,24 @@ public class LibraryGUI<TableModel> {
 				BookInsertGUI bookInsert = new BookInsertGUI(dto);
 			}
 		});//
-		btn_library_new.setBounds(362, 42, 76, 23);
+		btn_library_new.setBounds(622, 62, 76, 33);
 		frame.getContentPane().add(btn_library_new);
 		
-		JButton btnNewButton = new JButton("\uB0B4 \uC815\uBCF4");
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setBackground(SystemColor.activeCaption);
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\user2.png"));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				MypageGUI myp = new MypageGUI(dto);
 			}
 		});
-		btnNewButton.setBounds(346, 13, 97, 23);
+		btnNewButton.setBounds(632, 10, 59, 33);
 		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("\uBA54\uC778");
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setBackground(SystemColor.activeCaption);
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\main2.png"));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -137,7 +148,7 @@ public class LibraryGUI<TableModel> {
 			}
 		});
 		
-		btnNewButton_1.setBounds(38, 32, 97, 23);
+		btnNewButton_1.setBounds(24, 10, 69, 59);
 		frame.getContentPane().add(btnNewButton_1);
 		
 	}

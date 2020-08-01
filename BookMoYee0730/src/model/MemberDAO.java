@@ -137,5 +137,24 @@ public class MemberDAO {
 		}
 		return memberList;
 	}
-	
+	public boolean editPerson(MemberDTO dto){
+		 int cnt = 0;
+			getConn();
+			String sql = "update membertable set pw=?, PhoneNumber=?, Location=? where id = ?";
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, dto.getPw());
+				psmt.setString(2, dto.getPhoneNumber());
+				psmt.setString(3, dto.getLocation());
+				psmt.setString(4, dto.getId());
+				
+				
+				cnt = psmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+			
+			return true;
+	    }
 }
