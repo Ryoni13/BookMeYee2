@@ -126,11 +126,11 @@ public class BookInsertGUI {
       
       JComboBox cbb_insert_categoty = new JComboBox();
       cbb_insert_categoty.setModel(new DefaultComboBoxModel(new String[] {"아동", "소설", "자기계발서", "문제집", "잡지", "만화"}));
-      cbb_insert_categoty.setBounds(153, 268, 116, 21);
+      cbb_insert_categoty.setBounds(163, 264, 116, 21);
       frame.getContentPane().add(cbb_insert_categoty);
       
       JLabel lblNewLabel_4 = new JLabel("\uCE74\uD14C\uACE0\uB9AC");
-      lblNewLabel_4.setBounds(72, 264, 57, 15);
+      lblNewLabel_4.setBounds(82, 271, 57, 15);
       frame.getContentPane().add(lblNewLabel_4);
       
       JCheckBox cb_insert_deal = new JCheckBox("직거래");
@@ -165,13 +165,13 @@ public class BookInsertGUI {
                BufferedReader br = null;
                JSONParser parser = new JSONParser();
                
-               
-               String id= memberdto.getId();
+               int titleNumber = memberdto.getmemnum();
                String title = tf_insert_book.getText();
                String writer = tf_insert_writer.getText();
                String publisher = tf_insert_publicher.getText();
-               int price = Integer.parseInt(tf_insert_price.getText());
                String category = (String) cbb_insert_categoty.getSelectedItem();
+               int price = Integer.parseInt(tf_insert_price.getText());
+               String id= memberdto.getId();
                
                String dealtype = null;
                      if(cb_insert_deal.isSelected()) {
@@ -186,13 +186,17 @@ public class BookInsertGUI {
                      }else if(cb_insert_buy.isSelected()) {
                         dealcar = cb_insert_buy.getText();
                      }
+                     
+                     String phoneNumber= memberdto.getPhoneNumber();   
+                     String location= memberdto.getLocation();   
+                     
                 
-               int cnt = dao.bookInsert(new BookDTO(category, title, writer, publisher, price, dealtype, id, dealcar));
+               int cnt = dao.bookInsert(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, id, dealcar, phoneNumber, location));
                frame.dispose();
                LibraryGUI main = new LibraryGUI(memberdto);   
          }
       });
-      btn_bookinsert.setBounds(129, 543, 97, 23);
+      btn_bookinsert.setBounds(45, 543, 97, 23);
       frame.getContentPane().add(btn_bookinsert);
       
       JLabel lblNewLabel_5 = new JLabel("\uAC00\uACA9");
@@ -221,6 +225,16 @@ public class BookInsertGUI {
       JLabel label_1 = new JLabel("\uAC70\uB798 \uC885\uB958");
       label_1.setBounds(45, 48, 57, 15);
       frame.getContentPane().add(label_1);
+      
+      JButton btn_cancel = new JButton("\uCDE8\uC18C");
+      btn_cancel.addActionListener(new ActionListener() {
+      	public void actionPerformed(ActionEvent arg0) {
+      		frame.dispose();
+			LibraryGUI library = new LibraryGUI(memberdto);//취소버튼누르면 서재로 돌아가기
+      	}
+      });
+      btn_cancel.setBounds(209, 543, 97, 23);
+      frame.getContentPane().add(btn_cancel);
       
       
    }

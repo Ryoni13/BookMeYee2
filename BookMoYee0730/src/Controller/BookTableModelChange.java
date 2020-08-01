@@ -12,10 +12,10 @@ public class BookTableModelChange {
 		}
 		
 		public Object[][] listTypeChange(){
-	Object[][] data= new Object[bookList.size()][9];
+	Object[][] data= new Object[bookList.size()][10];
 			
 			for(int i = 0; i<data.length; i++) {
-				data[i][0] = bookList.get(i).getDealtype();
+				data[i][0] = bookList.get(i).getTitleNum();
 				data[i][1] = bookList.get(i).getCategory();
 				data[i][2] = bookList.get(i).getTitle();
 				data[i][3] = bookList.get(i).getWriter();

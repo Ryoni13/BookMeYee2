@@ -52,7 +52,7 @@ public class BookDAO {
 	public int bookInsert(BookDTO dto) {
 		int cnt = 0;
 		getConn();
-		String sql = "insert into booktable values(book_titlenumber_SEQ.NEXTVAL,?,?,?,?,?,?,?,?)";
+		String sql = "insert into book values(book_titlenumber_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getTitle());
@@ -63,6 +63,8 @@ public class BookDAO {
 			psmt.setString(6, dto.getDealtype());
 			psmt.setString(7, dto.getId());
 			psmt.setString(8, dto.getDealcar());
+			psmt.setString(9, dto.getPhoneNumber());
+			psmt.setString(10, dto.getLocation());
 		
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
@@ -75,7 +77,7 @@ public class BookDAO {
 	public int bookDelete(String id, String title) {
 		int cnt = 0;
 		getConn();
-		String sql = "delete from booktable where =? and pw =?";
+		String sql = "delete from book where =? and pw =?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
@@ -92,7 +94,7 @@ public class BookDAO {
 	public ArrayList<BookDTO> bookInfo(String id){
 		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 		getConn();
-		String sql = "select * from booktable where id= ?";
+		String sql = "select * from book where id= ?";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -106,9 +108,9 @@ public class BookDAO {
 				String category =rs.getString(5);
 				int price = rs.getInt(6);
 				String dealtype = rs.getString(7);
-				String memberid = rs.getString(8);
+				
 			
-				bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid));
+				bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -119,7 +121,7 @@ public class BookDAO {
 	public ArrayList<BookDTO> showallbook(String id){
 		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 		getConn();
-		String sql = "select * from booktable";
+		String sql = "select * from book";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -133,8 +135,11 @@ public class BookDAO {
 				int price = rs.getInt(6);
 				String dealtype = rs.getString(7);
 				String memberid = rs.getString(8);
+				String dealcar = rs.getString(9);
+				String phoneNumber = rs.getString(10);
+				String location = rs.getString(11);
 			
-				bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid));
+				bookList.add(new BookDTO(titleNumber, title, writer, publisher, category, price, dealtype, memberid, dealcar, phoneNumber, location));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -145,7 +150,7 @@ public class BookDAO {
 	public ArrayList<BookDTO> showsellbook(String id){
 		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 		getConn();
-		String sql = "select * from booktable where dealcar = '판매'";
+		String sql = "select * from book where dealcar = '판매'";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -172,7 +177,7 @@ public class BookDAO {
 	public ArrayList<BookDTO> showtradebook(String id){
 		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 		getConn();
-		String sql = "select * from booktable where dealcar = '교환'";
+		String sql = "select * from book where dealcar = '교환'";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -200,7 +205,7 @@ public class BookDAO {
 	public ArrayList<BookDTO> showkisbook(String id){
 		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 		getConn();
-		String sql = "select * from booktable where category = '아동'";
+		String sql = "select * from book where category = '아동'";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -228,7 +233,7 @@ public class BookDAO {
 	public ArrayList<BookDTO> showmunjuzip(String id){
 		ArrayList<BookDTO> bookList = new ArrayList<BookDTO>();
 		getConn();
-		String sql = "select * from booktable where category = '문제집'";
+		String sql = "select * from book where category = '문제집'";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -256,17 +261,20 @@ public class BookDAO {
 		ArrayList<BookDTO> bookList;
 		
 		public Object[][] listTypeChange(){
-			Object[][] data= new Object[bookList.size()][8];
+			Object[][] data= new Object[bookList.size()][10];
 			
 			for(int i = 0; i<data.length; i++) {
 				data[i][0] = bookList.get(i).getTitleNum();
 				data[i][1] = bookList.get(i).getTitle();
 				data[i][2] = bookList.get(i).getWriter();
 				data[i][3] = bookList.get(i).getPublisher();
-				data[i][4] = bookList.get(i).getPrice();
-				data[i][5] = bookList.get(i).getCategory();
+				data[i][4] = bookList.get(i).getCategory();
+				data[i][5] = bookList.get(i).getPrice();
 				data[i][6] = bookList.get(i).getDealtype();
 				data[i][7] = bookList.get(i).getId();
+				data[i][8] = bookList.get(i).getDealcar();
+				data[i][9] = bookList.get(i).getPhoneNumber();
+				data[i][9] = bookList.get(i).getLocation();
 				
 			}
 			

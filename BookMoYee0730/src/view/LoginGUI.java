@@ -92,7 +92,7 @@ public class LoginGUI {
 					pf_login_pw.setText("");
 				}else {
 					frame.dispose();
-					MainGUI main = new MainGUI(dto);
+					MainGUI mainGUI = new MainGUI(dto);
 				}
 			}
 		});
