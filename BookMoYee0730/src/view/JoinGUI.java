@@ -1,4 +1,4 @@
-package view;
+package view; //회원가입 하는 창
 
 
 import javax.swing.JFrame;

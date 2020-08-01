@@ -1,4 +1,4 @@
-package view;
+package view; //메인 페이지에 있는 책을 눌렀을때 뜨는 책 상세정보 및 판매 버튼
 
 import java.awt.EventQueue;
 
@@ -75,7 +75,7 @@ public class SellwordGUI {
 		frame.getContentPane().add(lb_Sellword_publicher);
 		
 		JLabel lb_sellword_price = new JLabel(Integer.toString(bookdto.getPrice()));
-		lb_sellword_price.setBounds(230, 196, 57, 15);
+		lb_sellword_price.setBounds(230, 183, 57, 15);
 		frame.getContentPane().add(lb_sellword_price);
 		
 		
@@ -98,13 +98,13 @@ public class SellwordGUI {
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("\uAC00\uACA9");
-		lblNewLabel_4.setBounds(142, 196, 57, 15);
+		lblNewLabel_4.setBounds(142, 183, 57, 15);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		 String dealtype = null;
          if(bookdto.getDealtype().equals("직거래")) {
         	 System.out.println("만나서 거래");
-         }else if(bookdto.getDealtype().equals("판매")) {
+         }else if(bookdto.getDealtype().equals("배송")) {
         	 System.out.println("편하게 거래");
          }
 		
@@ -113,11 +113,21 @@ public class SellwordGUI {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(12, 295, 411, 97);
+		panel.setBounds(14, 223, 411, 97);
 		frame.getContentPane().add(panel);
 		
 		JLabel lb_sellword_text = new JLabel("\uB0B4\uC6A9");
 		panel.add(lb_sellword_text);
+		
+		JButton btnNewButton = new JButton("\u2190");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				
+			}
+		});
+		btnNewButton.setBounds(14, 22, 64, 27);
+		frame.getContentPane().add(btnNewButton);
 		
 
 		

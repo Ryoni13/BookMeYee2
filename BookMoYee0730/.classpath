@@ -4,8 +4,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
 	<classpathentry kind="lib" path="jgoodies-forms-1.8.0.jar" sourcepath="jgoodies-forms-1.8.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SMT005/Desktop/Java_Study/geocoder-java-0.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SMT005/Desktop/Java_Study/gson-2.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SMT005/Desktop/Java_Study/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/krwd/Desktop/SMHRD/geocoder-java-0.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/krwd/Desktop/SMHRD/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/krwd/Desktop/SMHRD/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
