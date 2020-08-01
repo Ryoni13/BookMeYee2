@@ -182,6 +182,7 @@ public class JoinGUI {
 				if(pw.equals(pwCheck)) {
 					int cnt = dao.joinInsert(new MemberDTO(name, id, pw, phoneNumber, bread, location, latitude, longitude));
 					if(cnt == 0) {
+						System.out.println("실패");
 						JOptionPane.showMessageDialog(null, "회원가입 실패!");
 					}else {
 						frame.dispose();

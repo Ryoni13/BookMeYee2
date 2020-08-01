@@ -5,7 +5,8 @@ drop table book
 drop table membertable
 
 
-CREATE TABLE membertable(name varchar2(20) not null, 
+CREATE TABLE membertable(
+name varchar2(20) not null, 
 id varchar2(20),
 pw varchar2(20) NOT NULL,
 phonenumber varchar2(20) NOT NULL,
@@ -24,6 +25,8 @@ CREATE SEQUENCE MEMNUM_SEQ
     NOCACHE
     NOCYCLE;
     
+DROP SEQUENCE  MEMNUM_SEQ
+
 insert into membertable values('김정완', '123','123','010', 20,
 '광주 치평동', 35.14122, 126.8394, MEMNUM_SEQ.NEXTVAL);
 insert into membertable values('강주희', 'qwe','qwe','010', 20,
@@ -35,7 +38,7 @@ insert into membertable values('이향선', 'zxc','zxc','010', 20,
 insert into membertable values('조문형', '456','456','010', 20,
 '광주 두암동', 35.17114, 126.9364, MEMNUM_SEQ.NEXTVAL);
 
-
+select * from membertable;
 
 
 //////////////////////////////////////////////////////전에있던거///////////////////////////////////////////////////
@@ -46,7 +49,6 @@ select * from membertable;
 
 //////
 
-DROP SEQUENCE  MEMBERTABLE_ID_SEQ
 
 CREATE SEQUENCE MEMBERTABLE_ID_SEQ
 START WITH 1 

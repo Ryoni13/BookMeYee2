@@ -16,6 +16,9 @@ CONSTRAINT book_category_ck CHECK (category in('아동', '소설', '자기계발서', '문
 CONSTRAINT book_dealtype_ck CHECK (dealtype in('직거래', '배달')),
 CONSTRAINT book_dealcar_ck CHECK (dealcar in('판매', '교환', '나눔')));
 
+
+drop table book
+
 DROP SEQUENCE  tn_SEQ
 
 CREATE SEQUENCE tn_SEQ
@@ -38,7 +41,7 @@ insert into book values (tn_SEQ.NEXTVAL,'정완이의 일상', '김정완', 'SMHRD', '문�
 '배달','123', '나눔', '010', '광주 치평동');
 
 
-
+select * from book;
 
 
 
