@@ -45,6 +45,11 @@ public class MemberDTO {
 	}
 	
 	
+	public MemberDTO(String id) {
+		this.id = id;
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getName() {
 		return name;
 	}

@@ -111,6 +111,36 @@ public class MemberDAO {
 		return cnt;
 	}
 	
+	//
+	public ArrayList<MemberDTO> memberlogininfo(String id) {
+		ArrayList<MemberDTO> memberList = new ArrayList<MemberDTO>();
+		getConn();
+		String sql = "select * from membertable where id=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1,id);
+			rs=psmt.executeQuery();
+			while(rs.next()) {
+				String name = rs.getString(1);
+				String loginid = rs.getString(2);
+				String loginpw = rs.getString(3);
+				String phoneNumber = rs.getString(4);
+				int bread = rs.getInt(5);
+				String location = rs.getString(6);
+				double latitude = rs.getDouble(7);
+				double longitude = rs.getDouble(8);
+				int memnum = rs.getInt(9);
+				memberList.add(new MemberDTO(name,loginid, loginpw, phoneNumber, bread, location, latitude, longitude));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return memberList;
+	}
+	//
+	
+	
+	
 	public ArrayList<MemberDTO> memberInfoSelect() {
 		ArrayList<MemberDTO> memberList = new ArrayList<MemberDTO>();
 		getConn();

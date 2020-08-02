@@ -8,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import Controller.memberTableChange;
 import model.BookDTO;
 import model.DistanceDAO;
 import model.MemberDAO;
@@ -56,7 +57,6 @@ public class SellwordGUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(BookDTO bookdto) {
-		
 		MemberDAO memdao = new MemberDAO();
 		DistanceDAO distancedao = new DistanceDAO();
 		
@@ -242,6 +242,12 @@ public class SellwordGUI {
 		lblNewLabel_13.setFont(new Font("±¼¸²", Font.BOLD, 12));
 		lblNewLabel_13.setBounds(147, 108, 151, 15);
 		panel_1.add(lblNewLabel_13);
+		
+//		JLabel lblNewLabel_14 = new JLabel(""+memdao.memberlogininfo(bookdto.getId()).get(1));
+		JLabel lblNewLabel_14 = new JLabel(" ");
+		System.out.println(" ");
+		lblNewLabel_14.setBounds(25, 163, 57, 15);
+		panel_1.add(lblNewLabel_14);
 		
 		
 		System.out.println(dis);
