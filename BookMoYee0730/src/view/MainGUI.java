@@ -17,9 +17,19 @@ import Controller.BookTableModelChange;
 import model.BookDAO;
 import model.BookDTO;
 import model.MemberDTO;
+<<<<<<< HEAD
 import javax.swing.JPanel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+=======
+import java.awt.Font;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
+import java.awt.Color;
+import javax.swing.JPanel;
+import javax.swing.JTextPane;
+import javax.swing.JEditorPane;
+>>>>>>> branch 'master' of https://github.com/Ryoni13/BookMoY2.git
 
 public class MainGUI {
 
@@ -124,31 +134,40 @@ public class MainGUI {
     */
    private void initialize(MemberDTO memdto) {
       frame = new JFrame();
-      frame.setBounds(100, 100, 706, 595);
+      frame.getContentPane().setBackground(SystemColor.activeCaption);
+      frame.setBounds(100, 100, 750, 530);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.getContentPane().setLayout(null);
       
-      JButton btn_main_library = new JButton("\uB0B4 \uC11C\uC7AC");
+      JButton btn_main_library = new JButton("");
+      btn_main_library.setBackground(SystemColor.activeCaption);
+      btn_main_library.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\bookicon.png"));
       btn_main_library.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             frame.dispose();
             LibraryGUI libray = new LibraryGUI(memdto);
          }
       });
-      btn_main_library.setBounds(326, 10, 97, 23);
+      btn_main_library.setBounds(625, 10, 97, 47);
       frame.getContentPane().add(btn_main_library);
       
       textField_search = new JTextField();
-      textField_search.setBounds(97, 78, 281, 21);
+      textField_search.setBounds(197, 78, 281, 21);
       frame.getContentPane().add(textField_search);
       textField_search.setColumns(10);
       
       JLabel lblNewLabel = new JLabel("\uAC80\uC0C9");
-      lblNewLabel.setBounds(44, 81, 40, 15);
+      lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 15));
+      lblNewLabel.setBounds(135, 81, 40, 15);
       frame.getContentPane().add(lblNewLabel);
       
       tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+<<<<<<< HEAD
       tabbedPane.setBounds(12, 140, 655, 384);
+=======
+      tabbedPane.setBackground(new Color(173, 216, 230));
+      tabbedPane.setBounds(25, 114, 685, 355);
+>>>>>>> branch 'master' of https://github.com/Ryoni13/BookMoY2.git
       frame.getContentPane().add(tabbedPane);
       
       //
@@ -158,16 +177,19 @@ public class MainGUI {
       scrollPane_all.setViewportView(table_all);
       
       all_tab = new JTabbedPane(JTabbedPane.TOP);
+      all_tab.setBackground(new Color(173, 216, 230));
       scrollPane_all.setViewportView(all_tab);
       
       String[] colName = {"거래방식", "카테고리", "책 제목" ,"저자", "출판사", "가격"}; // 전체 테이블 컬럼
-      all_all = new JScrollPane();
-      all_tab.addTab("전체", null, all_all, null);
       
             BookTableModelChange modelCh = new BookTableModelChange(dao.showallbook(memdto.getId()));
             Object[][] data = modelCh.listTypeChange();
+         all_all = new JScrollPane();
+         all_tab.addTab("전체", null, all_all, null);
+         all_tab.setBackgroundAt(0, new Color(224, 255, 255));
          
             table_all_all = new JTable(data, colName);
+            table_all_all.setBackground(Color.WHITE);
             table_all_all.addMouseListener(new MouseAdapter() {
                @Override
                public void mouseClicked(MouseEvent e) {
@@ -190,11 +212,13 @@ public class MainGUI {
 
          all_kids = new JScrollPane();
          all_tab.addTab("아동", null, all_kids, null);
+         all_tab.setBackgroundAt(1, new Color(224, 255, 255));
             
             BookTableModelChange modelCh1 = new BookTableModelChange(dao.showkidsbook(memdto.getId()));
             Object[][] data1 = modelCh1.listTypeChange();
             
             table_all_kids = new JTable(data1, colName);
+            table_all_kids.setBackground(Color.WHITE);
             table_all_kids.addMouseListener(new MouseAdapter() {
                @Override
                public void mouseClicked(MouseEvent e) {
@@ -216,6 +240,8 @@ public class MainGUI {
          
          all_novel = new JScrollPane();
          all_tab.addTab("소설", null, all_novel, null);
+         all_tab.setForegroundAt(2, new Color(0, 0, 0));
+         all_tab.setBackgroundAt(2, new Color(224, 255, 255));
          
          BookTableModelChange modelCh2 = new BookTableModelChange(dao.shownovel(memdto.getId()));
          Object[][] data2 = modelCh2.listTypeChange();
@@ -243,11 +269,13 @@ public class MainGUI {
          
          JScrollPane all_better = new JScrollPane();
          all_tab.addTab("자기계발", null, all_better, null);
+         all_tab.setBackgroundAt(3, new Color(224, 255, 255));
          
          BookTableModelChange modelCh3 = new BookTableModelChange(dao.showbetterthanyesterday(memdto.getId()));
          Object[][] data3 = modelCh3.listTypeChange();
          
          table_all_better = new JTable(data3, colName);
+         table_all_better.setBackground(Color.WHITE);
          
          table_all_better.addMouseListener(new MouseAdapter() {
             @Override
@@ -272,6 +300,7 @@ public class MainGUI {
       
          all_munjejip = new JScrollPane();
          all_tab.addTab("문제집", null, all_munjejip, null);
+         all_tab.setBackgroundAt(4, new Color(224, 255, 255));
             
             BookTableModelChange modelCh4 = new BookTableModelChange(dao.showmunjezip(memdto.getId()));
             Object[][] data4 = modelCh4.listTypeChange();
@@ -300,6 +329,7 @@ public class MainGUI {
             
             JScrollPane all_magazine = new JScrollPane();
             all_tab.addTab("잡지", null, all_magazine, null);
+            all_tab.setBackgroundAt(5, new Color(224, 255, 255));
             
             BookTableModelChange modelCh5 = new BookTableModelChange(dao.showmagazine(memdto.getId()));
             Object[][] data5 = modelCh5.listTypeChange();
@@ -326,6 +356,7 @@ public class MainGUI {
             
             JScrollPane all_cartoon = new JScrollPane();
             all_tab.addTab("만화", null, all_cartoon, null);
+            all_tab.setBackgroundAt(6, new Color(224, 255, 255));
             
             BookTableModelChange modelCh6 = new BookTableModelChange(dao.showcartoon(memdto.getId()));
             Object[][] data6 = modelCh6.listTypeChange();
@@ -354,6 +385,7 @@ public class MainGUI {
             JTabbedPane tabbedPane_2 = new JTabbedPane(JTabbedPane.TOP);
             tabbedPane.addTab("판매", null, tabbedPane_2, null);
             
+<<<<<<< HEAD
             
             String[] colName1 = {"거래방식", "카테고리", "책 제목" ,"저자", "출판사", "가격"}; // 전체 테이블 컬럼
             
@@ -439,6 +471,26 @@ public class MainGUI {
             
             table_7 = new JTable();
             scrollPane_13.setViewportView(table_7);
+=======
+            JScrollPane scrollPane = new JScrollPane();
+            tabbedPane_2.addTab("New tab", null, scrollPane, null);
+            
+            JButton btnNewButton = new JButton("\uAC80\uC0C9");
+            btnNewButton.addActionListener(new ActionListener() {
+            	public void actionPerformed(ActionEvent arg0) {
+            		searchGUI search = new searchGUI(memdto);
+            		
+            		
+            	}
+            });
+            btnNewButton.setBounds(504, 77, 97, 23);
+            frame.getContentPane().add(btnNewButton);
+            
+            JLabel lblNewLabel_1 = new JLabel("New label");
+            lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\main2.png"));
+            lblNewLabel_1.setBounds(25, 10, 57, 62);
+            frame.getContentPane().add(lblNewLabel_1);
+>>>>>>> branch 'master' of https://github.com/Ryoni13/BookMoY2.git
          
             
 //      //////////////////////////////////////////////////////////////////////////////

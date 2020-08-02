@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JPanel;
+import java.awt.SystemColor;
 
 
 
@@ -53,53 +54,10 @@ public class SellwordGUI {
 	 */
 	private void initialize(BookDTO bookdto) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 451, 441);
+		frame.getContentPane().setBackground(new Color(173, 216, 230));
+		frame.setBounds(100, 100, 750, 420);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		
-		JLabel lb_sellword_category = new JLabel(bookdto.getCategory());
-		lb_sellword_category.setBounds(230, 71, 57, 15);
-		frame.getContentPane().add(lb_sellword_category);
-		
-		JLabel lb_sellword_Title = new JLabel(bookdto.getTitle());
-		lb_sellword_Title.setBounds(230, 96, 57, 15);
-		frame.getContentPane().add(lb_sellword_Title);
-		
-		JLabel lb_Sellword_Writer = new JLabel(bookdto.getWriter());
-		lb_Sellword_Writer.setBounds(230, 121, 57, 15);
-		frame.getContentPane().add(lb_Sellword_Writer);
-		
-		JLabel lb_Sellword_publicher = new JLabel(bookdto.getPublisher());
-		lb_Sellword_publicher.setBounds(230, 146, 57, 15);
-		frame.getContentPane().add(lb_Sellword_publicher);
-		
-		JLabel lb_sellword_price = new JLabel(Integer.toString(bookdto.getPrice()));
-		lb_sellword_price.setBounds(230, 183, 57, 15);
-		frame.getContentPane().add(lb_sellword_price);
-		
-		
-		
-		
-		JLabel lblNewLabel = new JLabel("\uC81C\uBAA9");
-		lblNewLabel.setBounds(109, 96, 57, 15);
-		frame.getContentPane().add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("\uC800\uC790");
-		lblNewLabel_1.setBounds(109, 121, 57, 15);
-		frame.getContentPane().add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("\uCD9C\uD310\uC0AC");
-		lblNewLabel_2.setBounds(109, 146, 57, 15);
-		frame.getContentPane().add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("\uCE74\uD14C\uACE0\uB9AC");
-		lblNewLabel_3.setBounds(109, 71, 57, 15);
-		frame.getContentPane().add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_4 = new JLabel("\uAC00\uACA9");
-		lblNewLabel_4.setBounds(142, 183, 57, 15);
-		frame.getContentPane().add(lblNewLabel_4);
 		
 		 String dealtype = null;
          if(bookdto.getDealtype().equals("Á÷°Å·¡")) {
@@ -113,7 +71,7 @@ public class SellwordGUI {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(14, 223, 411, 97);
+		panel.setBounds(396, 37, 310, 239);
 		frame.getContentPane().add(panel);
 		
 		JLabel lb_sellword_text = new JLabel("\uB0B4\uC6A9");
@@ -123,10 +81,11 @@ public class SellwordGUI {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
+				MainGUI mainGui = new MainGUI(null);
 				
 			}
 		});
-		btnNewButton.setBounds(14, 22, 64, 27);
+		btnNewButton.setBounds(12, 331, 64, 27);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("delivery");
@@ -136,8 +95,62 @@ public class SellwordGUI {
 				deliveryGUI delivery = new deliveryGUI(bookdto);
 			}
 		});
-		btnNewButton_1.setBounds(169, 343, 97, 23);
+		btnNewButton_1.setBounds(515, 312, 97, 23);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(SystemColor.activeCaption);
+		panel_1.setBounds(0, 0, 354, 381);
+		frame.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel_3 = new JLabel("\uCE74\uD14C\uACE0\uB9AC");
+		lblNewLabel_3.setBounds(74, 71, 57, 15);
+		panel_1.add(lblNewLabel_3);
+		
+		
+		JLabel lb_sellword_category = new JLabel(bookdto.getCategory());
+		lb_sellword_category.setBounds(191, 71, 57, 15);
+		panel_1.add(lb_sellword_category);
+		
+		
+		
+		
+		JLabel lblNewLabel = new JLabel("\uC81C\uBAA9");
+		lblNewLabel.setBounds(74, 108, 57, 15);
+		panel_1.add(lblNewLabel);
+		
+		JLabel lb_sellword_Title = new JLabel(bookdto.getTitle());
+		lb_sellword_Title.setBounds(191, 108, 57, 15);
+		panel_1.add(lb_sellword_Title);
+		
+		JLabel lblNewLabel_1 = new JLabel("\uC800\uC790");
+		lblNewLabel_1.setBounds(74, 153, 57, 15);
+		panel_1.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("\uCD9C\uD310\uC0AC");
+		lblNewLabel_2.setBounds(74, 191, 57, 15);
+		panel_1.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_4 = new JLabel("\uAC00\uACA9");
+		lblNewLabel_4.setBounds(74, 237, 57, 15);
+		panel_1.add(lblNewLabel_4);
+		
+		JLabel lb_sellword_price = new JLabel(Integer.toString(bookdto.getPrice()));
+		lb_sellword_price.setBounds(191, 237, 57, 15);
+		panel_1.add(lb_sellword_price);
+		
+		JLabel lb_Sellword_publicher = new JLabel(bookdto.getPublisher());
+		lb_Sellword_publicher.setBounds(191, 191, 57, 15);
+		panel_1.add(lb_Sellword_publicher);
+		
+		JLabel lb_Sellword_Writer = new JLabel(bookdto.getWriter());
+		lb_Sellword_Writer.setBounds(191, 153, 57, 15);
+		panel_1.add(lb_Sellword_Writer);
+		
+		JLabel lblNewLabel_5 = new JLabel("\uC0C1\uC138 \uC815\uBCF4");
+		lblNewLabel_5.setBounds(144, 10, 57, 15);
+		panel_1.add(lblNewLabel_5);
 		
 
 		

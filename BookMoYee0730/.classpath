@@ -4,8 +4,16 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/SMT058/Desktop/geocoding/geocoder-java-0.15.jar"/>
 	<classpathentry kind="lib" path="C:/Users/SMT058/Desktop/geocoding/gson-2.2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/SMT058/Desktop/geocoding/json-simple-1.1.1.jar"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/SMT055/Desktop/1stProject3/geocoder-java-0.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SMT055/Desktop/1stProject3/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SMT055/Desktop/1stProject3/jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SMT055/Desktop/1stProject3/jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SMT055/Desktop/1stProject3/json-simple-1.1.1.jar"/>
+>>>>>>> branch 'master' of https://github.com/Ryoni13/BookMoY2.git
 	<classpathentry kind="output" path="bin"/>
 </classpath>
