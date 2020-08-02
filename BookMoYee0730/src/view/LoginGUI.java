@@ -130,7 +130,7 @@ public class LoginGUI {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\lo.png"));
+		lblNewLabel_2.setIcon(new ImageIcon(LoginGUI.class.getResource("/icon/lo.png")));
 		lblNewLabel_2.setBounds(87, 23, 228, 413);
 		panel.add(lblNewLabel_2);
 		

@@ -154,7 +154,7 @@ public class MainGUI {
       
       JButton btn_main_library = new JButton("");
       btn_main_library.setBackground(new Color(173, 216, 230));
-      btn_main_library.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\mypageicon.png"));
+      btn_main_library.setIcon(new ImageIcon(MainGUI.class.getResource("/icon/mypageicon.png")));
       btn_main_library.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             frame.dispose();
@@ -802,7 +802,7 @@ public class MainGUI {
             
             JButton btnNewButton = new JButton("");
             btnNewButton.setBackground(new Color(173, 216, 230));
-            btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\searchicon.png"));
+            btnNewButton.setIcon(new ImageIcon(MainGUI.class.getResource("/icon/searchicon.png")));
             btnNewButton.addActionListener(new ActionListener() {
                public void actionPerformed(ActionEvent arg0) {
                   searchGUI search = new searchGUI(memdto, textField_search.getText());
@@ -814,7 +814,7 @@ public class MainGUI {
             frame.getContentPane().add(btnNewButton);
             
             JLabel lblNewLabel_1 = new JLabel("");
-            lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\main3.png"));
+            lblNewLabel_1.setIcon(new ImageIcon(MainGUI.class.getResource("/icon/main3.png")));
             lblNewLabel_1.setBounds(25, 10, 84, 89);
             frame.getContentPane().add(lblNewLabel_1);
 

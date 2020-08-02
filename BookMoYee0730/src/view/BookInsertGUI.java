@@ -265,7 +265,7 @@ public class BookInsertGUI {
 			MainGUI library = new MainGUI(memberdto);
       	}
       });
-      btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\main2.png"));
+      btnNewButton.setIcon(new ImageIcon(BookInsertGUI.class.getResource("/icon/main2.png")));
       btnNewButton.setBackground(SystemColor.activeCaption);
       btnNewButton.setBounds(12, 0, 51, 44);
       panel.add(btnNewButton);

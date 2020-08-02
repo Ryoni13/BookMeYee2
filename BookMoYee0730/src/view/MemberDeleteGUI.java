@@ -143,13 +143,13 @@ public class MemberDeleteGUI {
 				MainGUI mainGui = new MainGUI(dto);
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\main3.png"));
+		btnNewButton.setIcon(new ImageIcon(MemberDeleteGUI.class.getResource("/icon/main3.png")));
 		btnNewButton.setBackground(SystemColor.activeCaption);
-		btnNewButton.setBounds(12, 10, 84, 81);
+		btnNewButton.setBounds(12, 10, 78, 81);
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\logouticon.png"));
+		lblNewLabel.setIcon(new ImageIcon(MemberDeleteGUI.class.getResource("/icon/logouticon.png")));
 		lblNewLabel.setBounds(91, 61, 208, 250);
 		panel.add(lblNewLabel);
 		

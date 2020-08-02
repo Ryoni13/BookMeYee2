@@ -124,7 +124,7 @@ public class MypageGUI {
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setBounds(99, 55, 238, 248);
 		panel.add(lblNewLabel_2);
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\icon3.png"));
+		lblNewLabel_2.setIcon(new ImageIcon(MypageGUI.class.getResource("/icon/icon3.png")));
 		
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.setBounds(12, 3, 78, 73);
@@ -136,7 +136,7 @@ public class MypageGUI {
 			}
 		});
 		btnNewButton_1.setBackground(new Color(51, 153, 204));
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\main3.png"));
+		btnNewButton_1.setIcon(new ImageIcon(MypageGUI.class.getResource("/icon/main3.png")));
 		
 		JButton btnNewButton_2 = new JButton("\u2190");
 		btnNewButton_2.setBackground(new Color(100, 149, 237));

@@ -198,12 +198,12 @@ public class mypageGUI2 {
 				MainGUI my = new MainGUI(dto);
 			}
 		});
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\main3.png"));
+		btnNewButton_1.setIcon(new ImageIcon(mypageGUI2.class.getResource("/icon/main3.png")));
 		btnNewButton_1.setBounds(12, 10, 83, 73);
 		panel.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\icon2.png"));
+		lblNewLabel_3.setIcon(new ImageIcon(mypageGUI2.class.getResource("/icon/icon2.png")));
 		lblNewLabel_3.setBounds(88, 66, 216, 270);
 		panel.add(lblNewLabel_3);
 		

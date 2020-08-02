@@ -127,7 +127,7 @@ public class LibraryGUI<TableModel> {
 		
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBackground(new Color(173, 216, 230));
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\user2.png"));
+		btnNewButton.setIcon(new ImageIcon(LibraryGUI.class.getResource("/icon/user2.png")));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -139,7 +139,7 @@ public class LibraryGUI<TableModel> {
 		
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.setBackground(new Color(173, 216, 230));
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\main3.png"));
+		btnNewButton_1.setIcon(new ImageIcon(LibraryGUI.class.getResource("/icon/main3.png")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {

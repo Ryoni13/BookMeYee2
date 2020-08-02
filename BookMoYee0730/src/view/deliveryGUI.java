@@ -63,11 +63,13 @@ public class deliveryGUI {
 	 */
 	private void initialize(BookDTO bookdto) {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(176, 224, 230));
 		frame.setBounds(100, 100, 450, 345);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBackground(new Color(173, 216, 230));
 		tabbedPane.setBounds(0, 0, 434, 261);
 		frame.getContentPane().add(tabbedPane);
 		
