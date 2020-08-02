@@ -40,6 +40,7 @@ insert into membertable values('이향선', '456', '456', '010', 20, '두암동', 35.1
 
 select * from membertable;
 
+
 //////
 
 

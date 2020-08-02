@@ -94,8 +94,8 @@ public class MemberDeleteGUI {
 						pf_delete_pw.setText("");
 					}else {
 						frame.dispose();
-						LoginGUI loginGui = new LoginGUI();
 						JOptionPane.showMessageDialog(null, "회원탈퇴 성공");
+						LoginGUI loginGui = new LoginGUI();
 					}
 				} else {
 					JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다.", "회원탈퇴", JOptionPane.ERROR_MESSAGE);

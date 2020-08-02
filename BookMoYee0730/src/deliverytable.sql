@@ -9,7 +9,7 @@ phonenumber varchar2(20) NOT NULL,
 titleNumber number(10) NOT NULL,
 CONSTRAINT delivery_deliverynumber_pk primary key(deliverynumber),
 CONSTRAINT delivery_id_fk foreign key(id, phonenumber, location)
-references membertable(id, phonenumber, location),
+references membertable(id, phonenumber, location)on delete cascade,
 CONSTRAINT delivery_title_fk foreign key(titleNumber, title)
 references book(titleNumber, title));
 

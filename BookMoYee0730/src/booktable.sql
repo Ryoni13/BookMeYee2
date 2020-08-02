@@ -11,7 +11,7 @@ dealcar varchar2(10) NOT NULL,
 phonenumber varchar2(20) NOT NULL,
 location varchar2(30),
 CONSTRAINT book_titlenumber_pk primary key(titleNumber, title),
-CONSTRAINT book_id_fk foreign key(id, phonenumber, location) references membertable(id, phonenumber, location),
+CONSTRAINT book_id_fk foreign key(id, phonenumber, location) references membertable(id, phonenumber, location)on delete cascade,
 CONSTRAINT book_category_ck CHECK (category in('아동', '소설', '자기계발서', '문제집', '잡지', '만화')),
 CONSTRAINT book_dealtype_ck CHECK (dealtype in('직거래', '배달')),
 CONSTRAINT book_dealcar_ck CHECK (dealcar in('판매', '교환', '나눔')));

@@ -104,10 +104,9 @@ public class MemberDAO {
 			psmt.setString(1, id);
 			psmt.setString(2, pw);
 			cnt = psmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
-			close();
 		}
 		return cnt;
 	}
