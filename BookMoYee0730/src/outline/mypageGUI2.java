@@ -95,7 +95,7 @@ public class mypageGUI2 {
 		frame.getContentPane().add(tf_mypage_pw2);
 		tf_mypage_pw2.setColumns(10);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("PW\uD655\uC778");
+		JLabel lblNewLabel_2_1 = new JLabel("\uBCC0\uACBDPW");
 		lblNewLabel_2_1.setFont(new Font("±¼¸²", Font.PLAIN, 14));
 		lblNewLabel_2_1.setBounds(425, 180, 57, 15);
 		frame.getContentPane().add(lblNewLabel_2_1);
@@ -185,29 +185,29 @@ public class mypageGUI2 {
 		textField_1.setColumns(10);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.activeCaption);
+		panel.setBackground(new Color(51, 153, 204));
 		panel.setBounds(0, 0, 371, 395);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBackground(SystemColor.activeCaption);
+		btnNewButton_1.setBackground(new Color(51, 153, 204));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				MainGUI my = new MainGUI(dto);
 			}
 		});
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\main2.png"));
-		btnNewButton_1.setBounds(12, 10, 68, 50);
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\main3.png"));
+		btnNewButton_1.setBounds(12, 10, 83, 73);
 		panel.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\SMT055\\Downloads\\\u30EC\u30F3\u30C1\uFF06\u30C9\u30E9\u30A4\u30D0\u30FC\u306E\u8A2D\u5B9A\u30A2\u30A4\u30B3\u30F3\u3002.png"));
-		lblNewLabel_3.setBounds(61, 54, 298, 270);
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\icon2.png"));
+		lblNewLabel_3.setBounds(88, 66, 216, 270);
 		panel.add(lblNewLabel_3);
 		
-		JButton btnNewButton_2 = new JButton("\uC774\uC804 \uD398\uC774\uC9C0");
+		JButton btnNewButton_2 = new JButton("\u2190");
 		btnNewButton_2.setBackground(new Color(100, 149, 237));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -215,7 +215,7 @@ public class mypageGUI2 {
 				MypageGUI my = new MypageGUI(dto);
 			}
 		});
-		btnNewButton_2.setBounds(12, 346, 105, 23);
+		btnNewButton_2.setBounds(12, 346, 50, 23);
 		panel.add(btnNewButton_2);
 	}
 }

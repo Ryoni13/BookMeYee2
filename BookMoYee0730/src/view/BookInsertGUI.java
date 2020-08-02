@@ -139,26 +139,31 @@ public class BookInsertGUI {
       frame.getContentPane().add(lblNewLabel_4);
       
       JCheckBox cb_insert_deal = new JCheckBox("직거래");
+      cb_insert_deal.setBackground(SystemColor.activeCaption);
       buttonGroup.add(cb_insert_deal);
       cb_insert_deal.setBounds(140, 303, 71, 23);
       frame.getContentPane().add(cb_insert_deal);
       
       JCheckBox cb_insert_deli = new JCheckBox("배달");
+      cb_insert_deli.setBackground(SystemColor.activeCaption);
       buttonGroup.add(cb_insert_deli);
       cb_insert_deli.setBounds(233, 303, 62, 23);
       frame.getContentPane().add(cb_insert_deli);
       
       JCheckBox cb_insert_sell = new JCheckBox("판매");
+      cb_insert_sell.setBackground(SystemColor.activeCaption);
       buttonGroup_1.add(cb_insert_sell);
       cb_insert_sell.setBounds(114, 44, 71, 23);
       frame.getContentPane().add(cb_insert_sell);
       
       JCheckBox cb_insert_buy = new JCheckBox("교환");
+      cb_insert_buy.setBackground(SystemColor.activeCaption);
       buttonGroup_1.add(cb_insert_buy);
       cb_insert_buy.setBounds(189, 44, 71, 23);
       frame.getContentPane().add(cb_insert_buy);
       
       JCheckBox cb_insert_sha = new JCheckBox("나눔");
+      cb_insert_sha.setBackground(SystemColor.activeCaption);
       buttonGroup_1.add(cb_insert_sha);
       cb_insert_sha.setBounds(261, 44, 71, 23);
       frame.getContentPane().add(cb_insert_sha);
@@ -260,9 +265,9 @@ public class BookInsertGUI {
 			MainGUI library = new MainGUI(memberdto);
       	}
       });
-      btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\main2.png"));
+      btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\main2.png"));
       btnNewButton.setBackground(SystemColor.activeCaption);
-      btnNewButton.setBounds(12, 5, 66, 42);
+      btnNewButton.setBounds(12, 0, 51, 44);
       panel.add(btnNewButton);
       
       

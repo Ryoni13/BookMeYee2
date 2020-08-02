@@ -233,7 +233,7 @@ public class JoinGUI {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBackground(SystemColor.activeCaption);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\lo.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\lo.png"));
 		lblNewLabel.setBounds(69, 123, 218, 220);
 		panel.add(lblNewLabel);
 	}

@@ -18,6 +18,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class searchGUI {
    private JFrame frame;
@@ -64,16 +69,19 @@ public class searchGUI {
     */
    private void initialize(MemberDTO dto, String searchText) {
       frame = new JFrame();
-      frame.setBounds(100, 100, 450, 300);
+      frame.getContentPane().setBackground(new Color(173, 216, 230));
+      frame.setBounds(100, 100, 450, 313);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.getContentPane().setLayout(null);
       
       JLabel lblNewLabel = new JLabel("\uAC80\uC0C9 \uACB0\uACFC");
-      lblNewLabel.setBounds(178, 10, 57, 15);
+      lblNewLabel.setFont(new Font("«‘√ ∑“πŸ≈¡", Font.PLAIN, 14));
+      lblNewLabel.setBounds(177, 10, 93, 15);
       frame.getContentPane().add(lblNewLabel);
       
       JPanel panel = new JPanel();
-      panel.setBounds(12, 42, 410, 209);
+      panel.setBackground(new Color(173, 216, 230));
+      panel.setBounds(12, 42, 410, 197);
       frame.getContentPane().add(panel);
       panel.setLayout(null);
       
@@ -103,5 +111,15 @@ public class searchGUI {
          }
       });
       scrollPane.setViewportView(table);   
+      
+      JButton btnNewButton = new JButton("\uB2EB\uAE30");
+      btnNewButton.addActionListener(new ActionListener() {
+      	public void actionPerformed(ActionEvent arg0) {
+      		frame.dispose();
+      	}
+      });
+      btnNewButton.setBackground(new Color(102, 153, 204));
+      btnNewButton.setBounds(167, 249, 97, 23);
+      frame.getContentPane().add(btnNewButton);
    }
 }

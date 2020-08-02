@@ -131,7 +131,7 @@ public class MemberDeleteGUI {
 		frame.getContentPane().add(lb_loginId);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.activeCaption);
+		panel.setBackground(new Color(102, 153, 204));
 		panel.setBounds(0, 0, 372, 381);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -143,17 +143,18 @@ public class MemberDeleteGUI {
 				MainGUI mainGui = new MainGUI(dto);
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\main2.png"));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\main3.png"));
 		btnNewButton.setBackground(SystemColor.activeCaption);
-		btnNewButton.setBounds(12, 10, 67, 65);
+		btnNewButton.setBounds(12, 10, 84, 81);
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT055\\Downloads\\\u30B4\u30DF\u7BB1\u306E\u30D5\u30EA\u30FC\u30A2\u30A4\u30B3\u30F3.png"));
-		lblNewLabel.setBounds(58, 21, 256, 333);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\logouticon.png"));
+		lblNewLabel.setBounds(91, 61, 208, 250);
 		panel.add(lblNewLabel);
 		
-		JButton btnNewButton_1 = new JButton("\uC774\uC804 \uD398\uC774\uC9C0");
+		JButton btnNewButton_1 = new JButton("\u2190");
+		btnNewButton_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -161,7 +162,7 @@ public class MemberDeleteGUI {
 			}
 		});
 		btnNewButton_1.setBackground(new Color(100, 149, 237));
-		btnNewButton_1.setBounds(12, 348, 97, 23);
+		btnNewButton_1.setBounds(12, 348, 47, 23);
 		panel.add(btnNewButton_1);
 	}
 

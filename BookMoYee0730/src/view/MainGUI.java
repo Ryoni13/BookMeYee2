@@ -147,36 +147,36 @@ public class MainGUI {
     */
    private void initialize(MemberDTO memdto) {
       frame = new JFrame();
-      frame.getContentPane().setBackground(SystemColor.activeCaption);
+      frame.getContentPane().setBackground(new Color(173, 216, 230));
       frame.setBounds(100, 100, 750, 530);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.getContentPane().setLayout(null);
       
       JButton btn_main_library = new JButton("");
-      btn_main_library.setBackground(SystemColor.activeCaption);
-      btn_main_library.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\bookicon.png"));
+      btn_main_library.setBackground(new Color(173, 216, 230));
+      btn_main_library.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\mypageicon.png"));
       btn_main_library.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             frame.dispose();
             LibraryGUI libray = new LibraryGUI(memdto);
          }
       });
-      btn_main_library.setBounds(625, 10, 97, 47);
+      btn_main_library.setBounds(653, 10, 69, 47);
       frame.getContentPane().add(btn_main_library);
       
       textField_search = new JTextField();
-      textField_search.setBounds(197, 78, 281, 21);
+      textField_search.setBounds(197, 71, 281, 28);
       frame.getContentPane().add(textField_search);
       textField_search.setColumns(10);
       
       JLabel lblNewLabel = new JLabel("\uAC80\uC0C9");
-      lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 15));
-      lblNewLabel.setBounds(135, 81, 40, 15);
+      lblNewLabel.setFont(new Font("함초롬바탕", Font.PLAIN, 17));
+      lblNewLabel.setBounds(145, 69, 40, 25);
       frame.getContentPane().add(lblNewLabel);
       
       tabbedPane = new JTabbedPane(JTabbedPane.TOP);
       tabbedPane.setBounds(12, 140, 655, 384);
-      tabbedPane.setBackground(new Color(173, 216, 230));
+      tabbedPane.setBackground(new Color(175, 238, 238));
       tabbedPane.setBounds(25, 114, 685, 355);
       frame.getContentPane().add(tabbedPane);
       
@@ -184,10 +184,11 @@ public class MainGUI {
       
       scrollPane_all = new JScrollPane();//전체탭전체
       tabbedPane.addTab("전체", null, scrollPane_all, null);
+      tabbedPane.setBackgroundAt(0, new Color(175, 238, 238));
       scrollPane_all.setViewportView(table_all);
       
       tabbedPane_all_tab = new JTabbedPane(JTabbedPane.TOP);
-      tabbedPane_all_tab.setBackground(new Color(173, 216, 230));
+      tabbedPane_all_tab.setBackground(new Color(175, 238, 238));
       scrollPane_all.setViewportView(tabbedPane_all_tab);
       
       String[] colName = {"거래방식", "카테고리", "책 제목" ,"저자", "출판사", "가격"}; // 전체 테이블 컬럼
@@ -404,9 +405,11 @@ public class MainGUI {
 
             JTabbedPane tabbedPane_sell_tab = new JTabbedPane(JTabbedPane.TOP);
             tabbedPane.addTab("판매", null, tabbedPane_sell_tab, null);
+            tabbedPane.setBackgroundAt(1, new Color(175, 238, 238));
             
             JScrollPane scrollPane_sell_all = new JScrollPane();
             tabbedPane_sell_tab.addTab("전체", null, scrollPane_sell_all, null);
+            tabbedPane_sell_tab.setBackgroundAt(0, new Color(175, 238, 238));
             
             BookTableModelChange modelCh7 = new BookTableModelChange(dao.sellAllbook(memdto.getId()));
             Object[][] data7 = modelCh7.listTypeChange();//판매탭전체
@@ -437,6 +440,7 @@ public class MainGUI {
             
             JScrollPane scrollPane_sell_kids = new JScrollPane();//판매탭아동
             tabbedPane_sell_tab.addTab("아동", null, scrollPane_sell_kids, null);
+            tabbedPane_sell_tab.setBackgroundAt(1, new Color(175, 238, 238));
             
             BookTableModelChange modelCh8 = new BookTableModelChange(dao.sellkidsbook(memdto.getId()));
             Object[][] data8 = modelCh8.listTypeChange();
@@ -468,6 +472,7 @@ public class MainGUI {
             
             JScrollPane scrollPane_sell_novel = new JScrollPane();//판매탭소설
             tabbedPane_sell_tab.addTab("소설", null, scrollPane_sell_novel, null);
+            tabbedPane_sell_tab.setBackgroundAt(2, new Color(175, 238, 238));
             
             BookTableModelChange modelCh9 = new BookTableModelChange(dao.sellnovel(memdto.getId()));
             Object[][] data9 = modelCh9.listTypeChange();
@@ -499,6 +504,7 @@ public class MainGUI {
             
             JScrollPane scrollPane_sell_better = new JScrollPane();//판매탭자기계발서
             tabbedPane_sell_tab.addTab("자기계발서", null, scrollPane_sell_better, null);
+            tabbedPane_sell_tab.setBackgroundAt(3, new Color(175, 238, 238));
             
             BookTableModelChange modelCh10 = new BookTableModelChange(dao.sellbetterthanyesterday(memdto.getId()));
             Object[][] data10 = modelCh10.listTypeChange();
@@ -529,6 +535,7 @@ public class MainGUI {
             
             JScrollPane scrollPane_sell_munjiezip = new JScrollPane();//판매탭문제집
             tabbedPane_sell_tab.addTab("문제집", null, scrollPane_sell_munjiezip, null);
+            tabbedPane_sell_tab.setBackgroundAt(4, new Color(175, 238, 238));
             
             BookTableModelChange modelCh11 = new BookTableModelChange(dao.sellmunjezip(memdto.getId()));
             Object[][] data11 = modelCh11.listTypeChange();
@@ -558,6 +565,7 @@ public class MainGUI {
             
             JScrollPane scrollPane_sell_magazine = new JScrollPane();//판매탭잡지
             tabbedPane_sell_tab.addTab("잡지", null, scrollPane_sell_magazine, null);
+            tabbedPane_sell_tab.setBackgroundAt(5, new Color(175, 238, 238));
             BookTableModelChange modelCh12 = new BookTableModelChange(dao.sellmagazine(memdto.getId()));
             Object[][] data12 = modelCh12.listTypeChange();
             
@@ -584,6 +592,7 @@ public class MainGUI {
             
             JScrollPane scrollPane_sell_cartoon = new JScrollPane();//판매탭만화
             tabbedPane_sell_tab.addTab("만화", null, scrollPane_sell_cartoon, null);
+            tabbedPane_sell_tab.setBackgroundAt(6, new Color(175, 238, 238));
             BookTableModelChange modelCh13 = new BookTableModelChange(dao.sellcartoon(memdto.getId()));
             Object[][] data13 = modelCh13.listTypeChange();
             
@@ -607,9 +616,11 @@ public class MainGUI {
             
             tabbedPane_trade_tab = new JTabbedPane(JTabbedPane.TOP);
             tabbedPane.addTab("교환", null, tabbedPane_trade_tab, null);
+            tabbedPane.setBackgroundAt(2, new Color(175, 238, 238));
             
             scrollPane_trade_all = new JScrollPane();//교환탭전체
             tabbedPane_trade_tab.addTab("전체", null, scrollPane_trade_all, null);
+            tabbedPane_trade_tab.setBackgroundAt(0, new Color(175, 238, 238));
             
             BookTableModelChange modelCh14 = new BookTableModelChange(dao.tradeAllbook(memdto.getId()));
             Object[][] data14 = modelCh14.listTypeChange();
@@ -635,6 +646,7 @@ public class MainGUI {
             
             scrollPane_trade_kids = new JScrollPane();//교환탭아동
             tabbedPane_trade_tab.addTab("아동", null, scrollPane_trade_kids, null);
+            tabbedPane_trade_tab.setBackgroundAt(1, new Color(175, 238, 238));
             BookTableModelChange modelCh15 = new BookTableModelChange(dao.tradekidsbook(memdto.getId()));
             Object[][] data15 = modelCh15.listTypeChange();
             
@@ -659,6 +671,7 @@ public class MainGUI {
             
             scrollPane_trade_novel = new JScrollPane();//교환탭소설
             tabbedPane_trade_tab.addTab("소설", null, scrollPane_trade_novel, null);
+            tabbedPane_trade_tab.setBackgroundAt(2, new Color(175, 238, 238));
             BookTableModelChange modelCh16 = new BookTableModelChange(dao.tradenovel(memdto.getId()));
             Object[][] data16 = modelCh16.listTypeChange();
             
@@ -683,6 +696,7 @@ public class MainGUI {
             
             scrollPane_trade_better = new JScrollPane();//교환탭자기계발
             tabbedPane_trade_tab.addTab("자기계발", null, scrollPane_trade_better, null);
+            tabbedPane_trade_tab.setBackgroundAt(3, new Color(175, 238, 238));
             BookTableModelChange modelCh17 = new BookTableModelChange(dao.tradebetterthanyesterday(memdto.getId()));
             Object[][] data17 = modelCh17.listTypeChange();
             
@@ -706,6 +720,7 @@ public class MainGUI {
             
             scrollPane_trade_munjiezip = new JScrollPane();//교환탭문제집
             tabbedPane_trade_tab.addTab("문제집", null, scrollPane_trade_munjiezip, null);
+            tabbedPane_trade_tab.setBackgroundAt(4, new Color(175, 238, 238));
             BookTableModelChange modelCh18 = new BookTableModelChange(dao.trademunjezip(memdto.getId()));
             Object[][] data18 = modelCh18.listTypeChange();
             
@@ -729,6 +744,7 @@ public class MainGUI {
             
             scrollPane_trade_magazine = new JScrollPane();//교환탭잡지
             tabbedPane_trade_tab.addTab("잡지", null, scrollPane_trade_magazine, null);
+            tabbedPane_trade_tab.setBackgroundAt(5, new Color(175, 238, 238));
             BookTableModelChange modelCh19 = new BookTableModelChange(dao.trademagazine(memdto.getId()));
             Object[][] data19 = modelCh19.listTypeChange();
             
@@ -752,6 +768,7 @@ public class MainGUI {
             
             scrollPane_trade_cartoon = new JScrollPane();//교환탭만화
             tabbedPane_trade_tab.addTab("만화", null, scrollPane_trade_cartoon, null);
+            tabbedPane_trade_tab.setBackgroundAt(6, new Color(175, 238, 238));
             BookTableModelChange modelCh20 = new BookTableModelChange(dao.tradecartoon(memdto.getId()));
             Object[][] data20 = modelCh20.listTypeChange();
             
@@ -783,7 +800,9 @@ public class MainGUI {
             
             
             
-            JButton btnNewButton = new JButton("\uAC80\uC0C9");
+            JButton btnNewButton = new JButton("");
+            btnNewButton.setBackground(new Color(173, 216, 230));
+            btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\searchicon.png"));
             btnNewButton.addActionListener(new ActionListener() {
                public void actionPerformed(ActionEvent arg0) {
                   searchGUI search = new searchGUI(memdto, textField_search.getText());
@@ -791,12 +810,12 @@ public class MainGUI {
                   
                }
             });
-            btnNewButton.setBounds(504, 77, 97, 23);
+            btnNewButton.setBounds(494, 64, 40, 35);
             frame.getContentPane().add(btnNewButton);
             
-            JLabel lblNewLabel_1 = new JLabel("New label");
-            lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\main2.png"));
-            lblNewLabel_1.setBounds(25, 10, 57, 62);
+            JLabel lblNewLabel_1 = new JLabel("");
+            lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\main3.png"));
+            lblNewLabel_1.setBounds(25, 10, 84, 89);
             frame.getContentPane().add(lblNewLabel_1);
 
          

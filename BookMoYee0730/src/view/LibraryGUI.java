@@ -77,13 +77,13 @@ public class LibraryGUI<TableModel> {
 	 */
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(SystemColor.activeCaption);
+		frame.getContentPane().setBackground(new Color(173, 216, 230));
 		frame.setBounds(100, 100, 750, 530);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("\uB0B4 \uC11C\uC7AC");
-		lblNewLabel.setFont(new Font("±¼¸²", Font.PLAIN, 18));
+		JLabel lblNewLabel = new JLabel("My Page");
+		lblNewLabel.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 24));
 		lblNewLabel.setBounds(316, 14, 127, 55);
 		frame.getContentPane().add(lblNewLabel);
 
@@ -126,20 +126,20 @@ public class LibraryGUI<TableModel> {
 		frame.getContentPane().add(btn_library_new);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setBackground(SystemColor.activeCaption);
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\user2.png"));
+		btnNewButton.setBackground(new Color(173, 216, 230));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\user2.png"));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				MypageGUI myp = new MypageGUI(dto);
 			}
 		});
-		btnNewButton.setBounds(632, 10, 59, 33);
+		btnNewButton.setBounds(632, 10, 59, 43);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBackground(SystemColor.activeCaption);
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\main2.png"));
+		btnNewButton_1.setBackground(new Color(173, 216, 230));
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\git\\BookMoY2\\BookMoYee0730\\\uC0AC\uC6A9\uD55C \uC544\uC774\uCF58\\main3.png"));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -148,7 +148,7 @@ public class LibraryGUI<TableModel> {
 			}
 		});
 		
-		btnNewButton_1.setBounds(24, 10, 69, 59);
+		btnNewButton_1.setBounds(24, 10, 76, 74);
 		frame.getContentPane().add(btnNewButton_1);
 		
 	}
