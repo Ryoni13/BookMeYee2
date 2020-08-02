@@ -17,6 +17,7 @@ CONSTRAINT book_dealtype_ck CHECK (dealtype in('직거래', '배달')),
 CONSTRAINT book_dealcar_ck CHECK (dealcar in('판매', '교환', '나눔')));
 
 
+
 drop table book
 
 DROP SEQUENCE  tn_SEQ
@@ -29,16 +30,11 @@ CREATE SEQUENCE tn_SEQ
     NOCYCLE;
     
     
-insert into book values (tn_SEQ.NEXTVAL,'리현의 일상', '김리현', 'SMHRD', '아동', 20, 
-'직거래', '123', '판매', '010', '광주 치평동');
-insert into book values (tn_SEQ.NEXTVAL,'문형의 일상', '조문형', 'SMHRD', '자기계발서', 30, 
-'배달','qwe', '교환', '010', '광주 쌍촌동');
-insert into book values (tn_SEQ.NEXTVAL,'주희의 일상', '강주희', 'SMHRD', '소설', 0, 
-'직거래','qwe', '나눔', '010', '광주 쌍촌동');
-insert into book values (tn_SEQ.NEXTVAL,'향선의 일상', '이향선', 'SMHRD', '잡지', 10, 
-'직거래','asd', '판매', '010', '광주 치평동');
-insert into book values (tn_SEQ.NEXTVAL,'정완이의 일상', '김정완', 'SMHRD', '문제집', 3, 
-'배달','123', '나눔', '010', '광주 치평동');
+insert into book values (tn_SEQ.NEXTVAL,'리현의 일상', '김리현', 'SMHRD', '아동', 20, '직거래', '123', '판매', '010', '광주 치평동');
+insert into book values (tn_SEQ.NEXTVAL,'문형의 일상', '조문형', 'SMHRD', '자기계발서', 30, '배달','qwe', '교환', '010', '광주 쌍촌동');
+insert into book values (tn_SEQ.NEXTVAL,'주희의 일상', '강주희', 'SMHRD', '소설', 0, '직거래','qwe', '나눔', '010', '광주 쌍촌동');
+insert into book values (tn_SEQ.NEXTVAL,'향선의 일상', '이향선', 'SMHRD', '잡지', 10, '직거래','asd', '판매', '010', '광주 치평동');
+insert into book values (tn_SEQ.NEXTVAL,'정완이의 일상', '김정완', 'SMHRD', '문제집', 3, '배달', '123', '나눔', '010', '광주 치평동');
 
 
 select * from book;

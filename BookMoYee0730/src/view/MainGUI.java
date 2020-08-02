@@ -17,11 +17,9 @@ import Controller.BookTableModelChange;
 import model.BookDAO;
 import model.BookDTO;
 import model.MemberDTO;
-<<<<<<< HEAD
 import javax.swing.JPanel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
-=======
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
@@ -29,7 +27,6 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
->>>>>>> branch 'master' of https://github.com/Ryoni13/BookMoY2.git
 
 public class MainGUI {
 
@@ -162,12 +159,9 @@ public class MainGUI {
       frame.getContentPane().add(lblNewLabel);
       
       tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-<<<<<<< HEAD
       tabbedPane.setBounds(12, 140, 655, 384);
-=======
       tabbedPane.setBackground(new Color(173, 216, 230));
       tabbedPane.setBounds(25, 114, 685, 355);
->>>>>>> branch 'master' of https://github.com/Ryoni13/BookMoY2.git
       frame.getContentPane().add(tabbedPane);
       
       //
@@ -385,7 +379,6 @@ public class MainGUI {
             JTabbedPane tabbedPane_2 = new JTabbedPane(JTabbedPane.TOP);
             tabbedPane.addTab("판매", null, tabbedPane_2, null);
             
-<<<<<<< HEAD
             
             String[] colName1 = {"거래방식", "카테고리", "책 제목" ,"저자", "출판사", "가격"}; // 전체 테이블 컬럼
             
@@ -419,28 +412,29 @@ public class MainGUI {
             JScrollPane scrollPane_sell_kids = new JScrollPane();
             tabbedPane_2.addTab("아동", null, scrollPane_sell_kids, null);
             
-            BookTableModelChange modelCh8 = new BookTableModelChange(dao.sellkidsbook(memdto.getId()));
-            Object[][] data8 = modelCh8.listTypeChange();
+//            BookTableModelChange modelCh8 = new BookTableModelChange(dao.sellkidsbook(memdto.getId()));
+//            Object[][] data8 = modelCh8.listTypeChange();
+//            
+//            table_2 = new JTable();
+//            table_2.addMouseListener(new MouseAdapter() {
+//            	@Override
+//            	public void mouseClicked(MouseEvent e) {
+//            		
+//            		int index = table_2.getSelectedRow();
+//                    
+//                    dealtype = (String) table_2.getValueAt(index, 0);
+//                    category = (String) table_2.getValueAt(index, 1);
+//                    title = (String) table_2.getValueAt(index, 2);
+//                    writer = (String) table_2.getValueAt(index, 3);
+//                    publisher = (String) table_2.getValueAt(index, 4);
+//                    price = (int) table_2.getValueAt(index, 5);
+//                                  
+//                    BookDTO bookdto1 = new BookDTO(dealtype, category, title,  writer, publisher, price);
+//                    SellwordGUI word = new SellwordGUI(bookdto1);
+//            	}
+//            });
+//            scrollPane_sell_kids.setViewportView(table_2);
             
-            table_2 = new JTable();
-            table_2.addMouseListener(new MouseAdapter() {
-            	@Override
-            	public void mouseClicked(MouseEvent e) {
-            		
-            		int index = table_2.getSelectedRow();
-                    
-                    dealtype = (String) table_2.getValueAt(index, 0);
-                    category = (String) table_2.getValueAt(index, 1);
-                    title = (String) table_2.getValueAt(index, 2);
-                    writer = (String) table_2.getValueAt(index, 3);
-                    publisher = (String) table_2.getValueAt(index, 4);
-                    price = (int) table_2.getValueAt(index, 5);
-                                  
-                    BookDTO bookdto1 = new BookDTO(dealtype, category, title,  writer, publisher, price);
-                    SellwordGUI word = new SellwordGUI(bookdto1);
-            	}
-            });
-            scrollPane_sell_kids.setViewportView(table_2);
             
             JScrollPane scrollPane_2 = new JScrollPane();
             tabbedPane_2.addTab("New tab", null, scrollPane_2, null);
@@ -471,14 +465,13 @@ public class MainGUI {
             
             table_7 = new JTable();
             scrollPane_13.setViewportView(table_7);
-=======
             JScrollPane scrollPane = new JScrollPane();
             tabbedPane_2.addTab("New tab", null, scrollPane, null);
             
             JButton btnNewButton = new JButton("\uAC80\uC0C9");
             btnNewButton.addActionListener(new ActionListener() {
             	public void actionPerformed(ActionEvent arg0) {
-            		searchGUI search = new searchGUI(memdto);
+            		searchGUI search = new searchGUI(memdto, textField_search.getText());
             		
             		
             	}
@@ -490,7 +483,6 @@ public class MainGUI {
             lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT055\\Desktop\\main2.png"));
             lblNewLabel_1.setBounds(25, 10, 57, 62);
             frame.getContentPane().add(lblNewLabel_1);
->>>>>>> branch 'master' of https://github.com/Ryoni13/BookMoY2.git
          
             
 //      //////////////////////////////////////////////////////////////////////////////

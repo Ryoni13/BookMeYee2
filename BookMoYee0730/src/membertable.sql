@@ -5,8 +5,7 @@ drop table book
 drop table membertable
 
 
-CREATE TABLE membertable(
-name varchar2(20) not null, 
+CREATE TABLE membertable(name varchar2(20) not null, 
 id varchar2(20),
 pw varchar2(20) NOT NULL,
 phonenumber varchar2(20) NOT NULL,
@@ -17,7 +16,6 @@ longitude float(20) NOT NULL,
 memnum number(10) NOT NULL,
 CONSTRAINT membertable_id_pk PRIMARY KEY(id, phonenumber, location));
 
-
 CREATE SEQUENCE MEMNUM_SEQ
     INCREMENT BY 1
     START WITH 1
@@ -27,16 +25,11 @@ CREATE SEQUENCE MEMNUM_SEQ
     
 DROP SEQUENCE  MEMNUM_SEQ
 
-insert into membertable values('±èÁ¤¿Ï', '123','123','010', 20,
-'±¤ÁÖ Ä¡Æòµ¿', 35.14122, 126.8394, MEMNUM_SEQ.NEXTVAL);
-insert into membertable values('°­ÁÖÈñ', 'qwe','qwe','010', 20,
-'±¤ÁÖ ½ÖÃÌµ¿', 35.15204, 126.863, MEMNUM_SEQ.NEXTVAL);
-insert into membertable values('±è¸®Çö', 'asd','asd','010', 20,
-'±¤ÁÖ Ä¡Æòµ¿', 35.15325, 126.8446, MEMNUM_SEQ.NEXTVAL);
-insert into membertable values('ÀÌÇâ¼±', 'zxc','zxc','010', 20,
-'±¤ÁÖ Ã·´Ü2Áö±¸', 35.21419, 126.8693, MEMNUM_SEQ.NEXTVAL);
-insert into membertable values('Á¶¹®Çü', '456','456','010', 20,
-'±¤ÁÖ µÎ¾Ïµ¿', 35.17114, 126.9364, MEMNUM_SEQ.NEXTVAL);
+insert into membertable values('±èÁ¤¿Ï', '123','123','010', 20, '±¤ÁÖ Ä¡Æòµ¿', 35.14122, 126.8394, MEMNUM_SEQ.NEXTVAL);
+insert into membertable values('°­ÁÖÈñ', 'qwe','qwe','010', 20, '±¤ÁÖ ½ÖÃÌµ¿', 35.15204, 126.863, MEMNUM_SEQ.NEXTVAL);
+insert into membertable values('±è¸®Çö', 'asd','asd','010', 20, '±¤ÁÖ Ä¡Æòµ¿', 35.15325, 126.8446, MEMNUM_SEQ.NEXTVAL);
+insert into membertable values('ÀÌÇâ¼±', 'zxc','zxc','010', 20, '±¤ÁÖ Ã·´Ü2Áö±¸', 35.21419, 126.8693, MEMNUM_SEQ.NEXTVAL);
+insert into membertable values('Á¶¹®Çü', '456','456','010', 20, '±¤ÁÖ µÎ¾Ïµ¿', 35.17114, 126.9364, MEMNUM_SEQ.NEXTVAL);
 
 select * from membertable;
 

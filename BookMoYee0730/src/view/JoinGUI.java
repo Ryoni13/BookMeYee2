@@ -192,8 +192,8 @@ public class JoinGUI {
 						JOptionPane.showMessageDialog(null, "회원가입 실패!");
 					}else {
 						frame.dispose();
-						MainGUI main = new MainGUI(null);
 						JOptionPane.showMessageDialog(null, "회원가입 성공!");
+						MainGUI main = new MainGUI(null);
 					}
 				}else {
 					JOptionPane.showMessageDialog(null, "비밀번호 불일치", "비밀번호 확인", JOptionPane.ERROR_MESSAGE);

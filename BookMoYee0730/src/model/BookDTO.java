@@ -42,29 +42,29 @@ public class BookDTO {
 		this.dealtype = dealtype;
 		
 	}
-	public BookDTO(String dealtype2, String category2, String title2, String writer2, String publisher2, int price2) {
+	public BookDTO(String dealtype, String category, String title, String writer, String publisher, int price) {
 		super();
-		this.dealtype = dealtype2;
-		this.category = category2;
-		this.title = title2;
-		this.writer = writer2;
-		this.publisher = publisher2;
-		this.price = price2;
+		this.dealtype = dealtype;
+		this.category = category;
+		this.title = title;
+		this.writer = writer;
+		this.publisher = publisher;
+		this.price = price;
 		
 		
 	}
-	public BookDTO(int titleNumber, String title2, String writer2, String publisher2, String category2, int price2,
-			String dealtype2, String id, String dealcar2) {
+	public BookDTO(int titleNumber, String title, String writer, String publisher, String category, int price,
+			String dealtype, String id, String dealcar) {
 		super();
 		this.titleNum = titleNumber;
-		this.title = title2;
-		this.writer = writer2;
-		this.publisher = publisher2;
-		this.category = category2;
-		this.price = price2;
-		this.dealtype = dealtype2;
+		this.title = title;
+		this.writer = writer;
+		this.publisher = publisher;
+		this.category = category;
+		this.price = price;
+		this.dealtype = dealtype;
 		this.id = id;
-		this.dealcar = dealcar2;
+		this.dealcar = dealcar;
 		
 		
 	}
@@ -112,6 +112,8 @@ public class BookDTO {
 		this.location = location;
 	}
 	
+
+	
 	
 	
 	public int getTitleNum() {
@@ -147,6 +149,8 @@ public class BookDTO {
 	public String getLocation() {
 		return location;
 	}
+
+	
 	
 	
 		
